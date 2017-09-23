@@ -1,17 +1,39 @@
-
 package com.ifpb.padroes.entidades;
 
 import com.ifpb.padroes.enums.Papel;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
-public class Usuario {
+@Entity
+@SequenceGenerator(name = "minha_seq",
+        sequenceName = "seq_usu",
+        initialValue = 1,
+        allocationSize = 1)
+public class Usuario implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "minha_seq")
+    private int id;
+    @Column(nullable = false, length = 50)
     private String nome;
+    @Column(nullable = false, length = 60)
     private String email;
+    @Column(nullable = false)
     private String senha;
+    @Column(nullable = false)
     private int matricula;
+    @Enumerated(EnumType.STRING)
     private Papel papel;
-    
-    public Usuario(){};
+
+    public Usuario() {
+    }
 
     public Usuario(String nome, String email, String senha, int matricula, Papel papel) {
         this.nome = nome;
@@ -19,6 +41,14 @@ public class Usuario {
         this.senha = senha;
         this.matricula = matricula;
         this.papel = papel;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -65,6 +95,5 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "nome=" + nome + ", email=" + email + ", senha=" + senha + ", matricula=" + matricula + ", papel=" + papel + '}';
     }
-    
-    
+
 }
