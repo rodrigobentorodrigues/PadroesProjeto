@@ -5,8 +5,11 @@ import com.ifpb.padroes.interfaces.Dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import com.ifpb.padroes.interfaces.Autentica;
+import javax.persistence.Query;
 
-public class UsuarioDao implements Dao<Usuario> {
+public class UsuarioDao implements Dao<Usuario>, Autentica {
 
     private EntityManager em;
 
@@ -20,21 +23,41 @@ public class UsuarioDao implements Dao<Usuario> {
         em.getTransaction().begin();
         em.persist(objeto);
         em.getTransaction().commit();
+        em.close();
     }
 
     @Override
     public void remover(Usuario objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // Implementar
+        
     }
 
     @Override
     public void atualizar(Usuario objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // Implementar
     }
 
     @Override
     public List<Usuario> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "SELECT u FROM Usuario u";
+        TypedQuery<Usuario> createQuery = em.createQuery(sql, Usuario.class);
+        List<Usuario> usuarios = createQuery.getResultList();
+        return usuarios;
+    }
+    
+    @Override
+    public Usuario autentica(String login, String senha){
+        Query createQuery = em.createNamedQuery("Usuario.login", Usuario.class);
+        createQuery.setParameter("login", login);
+        createQuery.setParameter("senha", senha);
+        List<Usuario> usuarios = createQuery.getResultList();
+        if(usuarios.isEmpty()){
+            return null;
+        } else {
+            System.out.println(usuarios.toString());
+            Usuario usuario = usuarios.get(0);
+            return usuario;
+        }
     }
 
 }

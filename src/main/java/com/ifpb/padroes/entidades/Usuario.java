@@ -9,13 +9,18 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 
 @Entity
 @SequenceGenerator(name = "minha_seq",
         sequenceName = "seq_usu",
-        initialValue = 1,
-        allocationSize = 1)
+        initialValue = 1, allocationSize = 1)
+@NamedQueries(
+@NamedQuery(name = "Usuario.login", 
+        query = "SELECT u FROM Usuario u WHERE u.nome = :login AND u.senha = :senha")
+)
 public class Usuario implements Serializable {
 
     @Id
