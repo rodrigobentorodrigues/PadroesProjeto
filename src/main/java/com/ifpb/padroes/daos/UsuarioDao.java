@@ -28,13 +28,15 @@ public class UsuarioDao implements Dao<Usuario>, Autentica {
 
     @Override
     public void remover(Usuario objeto) {
-        // Implementar
-        
+        Usuario auxiliar = buscaPorId(objeto.getId());
+        em.getTransaction().begin();
+        em.remove(auxiliar);
+        em.getTransaction().commit();
+        em.close();
     }
 
     @Override
     public void atualizar(Usuario objeto) {
-        System.out.println(objeto.toString());
         em.getTransaction().begin();
         em.merge(objeto);
         em.getTransaction().commit();

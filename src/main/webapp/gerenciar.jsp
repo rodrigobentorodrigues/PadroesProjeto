@@ -25,6 +25,11 @@
                     <input type="hidden" name="id" value="${usuario.id}"/>
                     <td><input type="submit" value="Editar"/></td>
                 </form>
+                <form action="frontController" method="POST">
+                    <input type="hidden" name="comando" value="Excluir"/>
+                    <input type="hidden" name="id" value="${usuario.id}"/>
+                    <td><input type="submit" value="Excluir"/></td>
+                </form>
             </tr>
         </c:forEach>
     </table>
