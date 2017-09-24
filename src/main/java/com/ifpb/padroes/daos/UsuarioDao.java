@@ -34,7 +34,11 @@ public class UsuarioDao implements Dao<Usuario>, Autentica {
 
     @Override
     public void atualizar(Usuario objeto) {
-        // Implementar
+        System.out.println(objeto.toString());
+        em.getTransaction().begin();
+        em.merge(objeto);
+        em.getTransaction().commit();
+        em.close();
     }
 
     @Override
@@ -46,6 +50,11 @@ public class UsuarioDao implements Dao<Usuario>, Autentica {
     }
     
     @Override
+    public Usuario buscaPorId(int id){
+        return em.find(Usuario.class, id);
+    }
+    
+    @Override
     public Usuario autentica(String login, String senha){
         Query createQuery = em.createNamedQuery("Usuario.login", Usuario.class);
         createQuery.setParameter("login", login);
@@ -54,7 +63,6 @@ public class UsuarioDao implements Dao<Usuario>, Autentica {
         if(usuarios.isEmpty()){
             return null;
         } else {
-            System.out.println(usuarios.toString());
             Usuario usuario = usuarios.get(0);
             return usuario;
         }

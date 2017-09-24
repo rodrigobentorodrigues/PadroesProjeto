@@ -32,5 +32,12 @@ public class FrontController extends HttpServlet {
             pw.print(ex);
         } 
     }            
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+    
+    
     
 }

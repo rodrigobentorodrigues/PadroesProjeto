@@ -7,11 +7,15 @@
         <title>Pagina Inicial</title>
     </head>
     <body>
-        <h3>ID: ${usuarioLogado.id} </h3>
-        <h3>Nome: ${usuarioLogado.nome} </h3>
-        <h3>Senha: ${usuarioLogado.senha}</h3>
-        <h3>Email: ${usuarioLogado.email} </h3>
-        <h3>Matricula: ${usuarioLogado.matricula} </h3>
-        <h3>Papel: ${usuarioLogado.papel} </h3>
+        <h2>Pagina Inicial</h2>
+<!--        <h5>ID: ${usuarioLogado.id} </h5>
+        <h5>Nome: ${usuarioLogado.nome} </h5>
+        <h5>Senha: ${usuarioLogado.senha}</h5>
+        <h5>Email: ${usuarioLogado.email} </h5>
+        <h5>Matricula: ${usuarioLogado.matricula} </h5>
+        <h5>Papel: ${usuarioLogado.papel} </h5>-->
+        <br>
+        <!--Utilizar form posteriormente-->
+        <a href="frontController?comando=Gerenciar">Gerenciar Usuarios</a>
     </body>
 </html>
