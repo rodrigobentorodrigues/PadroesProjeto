@@ -7,6 +7,8 @@
         <title>Pagina de Edicao</title>
     </head>
     <body>
+        <a href="cadastro.html">Cadastrar novo usuário</a>
+        <hr>
         <table style="border: 1px solid black;">
             <tr>
                 <td><b>Nome</b></td>

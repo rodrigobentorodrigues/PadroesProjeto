@@ -3,6 +3,8 @@
   <persistence-unit name="UPersistence" transaction-type="JTA">
     <jta-data-source>java:app/conexao</jta-data-source>
     <class>com.ifpb.padroes.entidades.Usuario</class>
+    <class>com.ifpb.padroes.entidades.Feriado</class>
+    <class>com.ifpb.padroes.conversores.ConversorData</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

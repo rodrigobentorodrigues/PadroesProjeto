@@ -23,7 +23,7 @@ public class AdicionarUsuario implements Command {
         Usuario usuario = new Usuario(nome, email, senha, matricula, papel);
         dao.adicionar(usuario);
         try {
-            resposta.sendRedirect("index.html");
+            resposta.sendRedirect("frontController?comando=GerenciarUsuarios");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

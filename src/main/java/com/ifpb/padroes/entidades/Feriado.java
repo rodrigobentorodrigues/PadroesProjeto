@@ -1,10 +1,24 @@
 
 package com.ifpb.padroes.entidades;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
-public class Feriado {
+@Entity
+@SequenceGenerator(name = "minha_seq_feriado", 
+        sequenceName = "seq_feriado",
+        allocationSize = 1,
+        initialValue = 1)
+public class Feriado implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "minha_seq_feriado")
+    private int id;
     private String nome;
     private LocalDate data;
 
@@ -14,6 +28,14 @@ public class Feriado {
     }
 
     public Feriado() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
