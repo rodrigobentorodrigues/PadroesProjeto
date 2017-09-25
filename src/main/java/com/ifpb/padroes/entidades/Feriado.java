@@ -1,13 +1,17 @@
 
 package com.ifpb.padroes.entidades;
 
+import com.ifpb.padroes.conversores.ConversorData;
 import java.io.Serializable;
 import java.time.LocalDate;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @SequenceGenerator(name = "minha_seq_feriado", 
@@ -20,11 +24,13 @@ public class Feriado implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "minha_seq_feriado")
     private int id;
     private String nome;
-    private LocalDate data;
+    @Temporal(TemporalType.DATE)
+    @Convert(converter = ConversorData.class)
+    private LocalDate dataFeriado;
 
     public Feriado(String nome, LocalDate data) {
         this.nome = nome;
-        this.data = data;
+        this.dataFeriado = data;
     }
 
     public Feriado() {
@@ -47,16 +53,16 @@ public class Feriado implements Serializable {
     }
 
     public LocalDate getData() {
-        return data;
+        return dataFeriado;
     }
 
     public void setData(LocalDate data) {
-        this.data = data;
+        this.dataFeriado = data;
     }
 
     @Override
     public String toString() {
-        return "Feriado{" + "nome=" + nome + ", data=" + data + '}';
+        return "Feriado{" + "nome=" + nome + ", data=" + dataFeriado + '}';
     }
     
 }

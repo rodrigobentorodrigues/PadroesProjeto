@@ -35,5 +35,7 @@
             </tr>
         </c:forEach>
     </table>
+    <hr>
+    <a href="inicial.jsp">Voltar</a>
 </body>
 </html>

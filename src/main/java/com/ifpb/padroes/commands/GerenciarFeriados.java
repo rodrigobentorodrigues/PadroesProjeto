@@ -3,8 +3,6 @@ package com.ifpb.padroes.commands;
 
 import com.ifpb.padroes.interfaces.Command;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,12 +11,15 @@ public class GerenciarFeriados implements Command {
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         // Toda a logica de adicionar os feriados na tela
-        RequestDispatcher despachante = requisicao.getRequestDispatcher("gerenciarFer.jsp");
+        String url = resposta.encodeURL("gerenciarFer.jsp");
         try {
-            despachante.forward(requisicao, resposta);
-        } catch (ServletException | IOException ex) {
+            resposta.sendRedirect(url);
+//        RequestDispatcher despachante = requisicao.getRequestDispatcher(url);
+//            despachante.forward(requisicao, resposta);
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
+         
     }
     
 }

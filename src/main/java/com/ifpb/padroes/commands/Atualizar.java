@@ -25,8 +25,9 @@ public class Atualizar implements Command {
         Usuario usuario = new Usuario(nome, email, senha, matricula, papel); 
         usuario.setId(id);
         dao.atualizar(usuario);
+        String url = resposta.encodeURL("frontController?comando=GerenciarUsuarios");
         try {
-            resposta.sendRedirect("inicial.jsp");
+            resposta.sendRedirect(url);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
