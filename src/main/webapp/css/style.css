@@ -1,0 +1,27 @@
+.pagina-login {
+    /* background-color: #E2E2E2;  */
+    background-image: url('../img/fundo.jpg');
+    background-repeat: no-repeat;
+}
+
+.logo {
+    /* margin-top: 50px;  */
+    padding: 4% 2%;
+    /* border: 2px solid blue; */
+    margin: 2% 2%;
+}
+
+.form-login {
+    padding: 3% 2%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 2%;
+    background-color: #ABD0EC;
+}
+
+/* Estilo para ajeitar aparecia de links */
+.links {
+    color: black;
+    margin-top: 8px;
+    font-size: 16px;
+}

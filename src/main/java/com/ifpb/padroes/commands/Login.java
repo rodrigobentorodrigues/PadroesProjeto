@@ -18,6 +18,9 @@ public class Login implements Command {
         try {
             String login = requisicao.getParameter("login");
             String senha = requisicao.getParameter("senha");
+            
+//            System.out.println("Login: " + login + " Senha: " + senha);
+            
             Usuario auxiliar = aut.autentica(login, senha);
             if (auxiliar != null) {
                 HttpSession sessao = requisicao.getSession();
