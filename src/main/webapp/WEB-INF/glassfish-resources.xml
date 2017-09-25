@@ -6,7 +6,7 @@
         <property name="portNumber" value="5432"/>
         <property name="databaseName" value="Padroes"/>
         <property name="User" value="postgres"/>
-        <property name="Password" value="123"/>
+        <property name="Password" value="12345"/>
         <property name="URL" value="jdbc:postgresql://localhost:5432/Padroes"/>
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>
