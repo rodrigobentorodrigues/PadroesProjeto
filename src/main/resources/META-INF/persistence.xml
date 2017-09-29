@@ -5,6 +5,8 @@
     <class>com.ifpb.padroes.entidades.Usuario</class>
     <class>com.ifpb.padroes.entidades.Feriado</class>
     <class>com.ifpb.padroes.conversores.ConversorData</class>
+    <class>com.ifpb.padroes.entidades.Bloco</class>
+    <class>com.ifpb.padroes.entidades.Sala</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
