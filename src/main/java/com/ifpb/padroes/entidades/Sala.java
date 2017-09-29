@@ -2,10 +2,22 @@
 package com.ifpb.padroes.entidades;
 
 import com.ifpb.padroes.enums.TipoSala;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-public class Sala {
+@Entity
+public class Sala implements Serializable {
     
+    @Id
+    @GeneratedValue
+    private int id;
     private String nome;
+    @ManyToOne
+    @JoinColumn(name = "bloco_id")
     private Bloco bloco;
     private int capacidade;
     private TipoSala tipo;
@@ -18,6 +30,14 @@ public class Sala {
         this.bloco = bloco;
         this.capacidade = capacidade;
         this.tipo = tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -54,7 +74,6 @@ public class Sala {
 
     @Override
     public String toString() {
-        return "Sala{" + "nome=" + nome + ", bloco=" + bloco + ", capacidade=" + capacidade + ", tipo=" + tipo + '}';
+        return "Sala{" + "id=" + id + ", nome=" + nome + ", bloco=" + bloco + ", capacidade=" + capacidade + ", tipo=" + tipo + '}';
     }
-    
 }

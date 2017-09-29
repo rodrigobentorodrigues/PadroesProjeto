@@ -1,23 +1,22 @@
-
 package com.ifpb.padroes.daos;
 
-import com.ifpb.padroes.entidades.Feriado;
+import com.ifpb.padroes.entidades.Bloco;
 import com.ifpb.padroes.interfaces.Dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class FeriadoDao implements Dao<Feriado>{
+public class BlocoDao implements Dao<Bloco>{
 
     private EntityManager em;
     
-    public FeriadoDao(){
+    public BlocoDao(){
         this.em = Persistence.createEntityManagerFactory("UPersistence").
                 createEntityManager();
     }
     
     @Override
-    public void adicionar(Feriado objeto) {
+    public void adicionar(Bloco objeto) {
         em.getTransaction().begin();
         em.persist(objeto);
         em.getTransaction().commit();
@@ -25,16 +24,16 @@ public class FeriadoDao implements Dao<Feriado>{
     }
 
     @Override
-    public void remover(Feriado objeto) {
-        Feriado auxiliar = buscaPorId(objeto.getId());
+    public void remover(Bloco objeto) {
+        Bloco aux = buscaPorId(objeto.getId());
         em.getTransaction().begin();
-        em.remove(auxiliar);
+        em.remove(aux);
         em.getTransaction().commit();
         em.close();
     }
 
     @Override
-    public void atualizar(Feriado objeto) {
+    public void atualizar(Bloco objeto) {
         em.getTransaction().begin();
         em.merge(objeto);
         em.getTransaction().commit();
@@ -42,14 +41,14 @@ public class FeriadoDao implements Dao<Feriado>{
     }
 
     @Override
-    public Feriado buscaPorId(int id) {
-        return em.find(Feriado.class, id);
+    public Bloco buscaPorId(int id) {
+        return em.find(Bloco.class, id);
     }
 
     @Override
-    public List<Feriado> listarTodos() {
-        return em.createQuery("SELECT f FROM Feriado f",
-                Feriado.class).getResultList();
+    public List<Bloco> listarTodos() {
+        return em.createQuery("SELECT b FROM Bloco b",
+                Bloco.class).getResultList();
     }
     
 }

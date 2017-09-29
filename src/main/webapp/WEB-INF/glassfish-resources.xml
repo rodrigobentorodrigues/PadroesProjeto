@@ -7,8 +7,8 @@
         <property name="databaseName" value="Padroes"/>
         <property name="User" value="postgres"/>
         <property name="Password" value="12345"/>
-        <!--<property name="URL" value="jdbc:postgresql://localhost:5432/Padroes"/>-->
-        <property name="URL" value="jdbc:postgresql://banco_padroes:5432/Padroes"/>
+        <property name="URL" value="jdbc:postgresql://localhost:5432/Padroes"/>
+        <!--<property name="URL" value="jdbc:postgresql://banco_padroes:5432/Padroes"/>-->
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="java:app/conexao" object-type="user" pool-name="post-gre-sql_Padroes_postgresPool"/>
