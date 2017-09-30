@@ -18,5 +18,6 @@
         <!--Utilizar form posteriormente-->
         <a href="frontController?comando=GerenciarUsuarios">Gerenciar Usuarios</a>
         <a href="frontController?comando=GerenciarFeriados">Gerenciar Feriados</a>
+        <a href="frontController?comando=GerenciarBlocos">Gerenciar Blocos</a>
     </body>
 </html>

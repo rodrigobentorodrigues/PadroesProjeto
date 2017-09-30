@@ -10,7 +10,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Atualizar implements Command {
+public class AtualizarUsuario implements Command {
     
     private Dao dao = new UsuarioDao();
 
