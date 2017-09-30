@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Gerenciar Blocos!</h1>
-        <a href="cadastroBloco.html"> Adicionar Bloco</a><br><br>
+        <a href="cadastroBloco.html">Adicionar Bloco</a><br><br>
         <table style="border: 1px solid black">
             <tr>
                 <td>Nome</td>
@@ -23,7 +23,7 @@
                     <input type="hidden" name="id" value="${bloco.id}"/>
                     <td><input type="submit" value="Editar"/></td>
                 </form>
-                <form action="#" method="POST">
+                <form action="frontController" method="POST">
                     <input type="hidden" name="comando" value="ExcluirBloco"/>
                     <input type="hidden" name="id" value="${bloco.id}"/>
                     <td><input type="submit" value="Excluir"/></td>
