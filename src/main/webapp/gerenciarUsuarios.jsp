@@ -23,12 +23,12 @@
                     <td>${usuario.matricula}</td>
                     <td>${usuario.papel}</td>
                 <form action="frontController" method="POST">
-                    <input type="hidden" name="comando" value="Editar"/>
+                    <input type="hidden" name="comando" value="EditarUsuario"/>
                     <input type="hidden" name="id" value="${usuario.id}"/>
                     <td><input type="submit" value="Editar"/></td>
                 </form>
                 <form action="frontController" method="POST">
-                    <input type="hidden" name="comando" value="Excluir"/>
+                    <input type="hidden" name="comando" value="ExcluirUsuario"/>
                     <input type="hidden" name="id" value="${usuario.id}"/>
                     <td><input type="submit" value="Excluir"/></td>
                 </form>

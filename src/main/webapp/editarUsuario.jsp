@@ -7,7 +7,7 @@
     </head>
     <body>
         <form action="frontController" method="POST">
-            <input type="hidden" name="comando" value="Atualizar"/>
+            <input type="hidden" name="comando" value="AtualizarUsuario"/>
             <input type="hidden" name="id" value="${usuarioEdit.id}"/>
             <input type="hidden" name="matricula" value="${usuarioEdit.matricula}"/>
             Nome: <input type="text" name="nome" value="${usuarioEdit.nome}"/><br>

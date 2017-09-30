@@ -11,7 +11,7 @@ public class GerenciarFeriados implements Command {
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         // Toda a logica de adicionar os feriados na tela
-        String url = resposta.encodeURL("gerenciarFer.jsp");
+        String url = resposta.encodeURL("gerenciarFeriados.jsp");
         try {
             resposta.sendRedirect(url);
 //        RequestDispatcher despachante = requisicao.getRequestDispatcher(url);
