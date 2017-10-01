@@ -9,6 +9,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+//
 public class AdicionarUsuario implements Command {
 
     private UsuarioDao dao = new GerenciadorUsuario();
