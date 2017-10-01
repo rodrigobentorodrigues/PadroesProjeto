@@ -88,24 +88,28 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4><span class="glyphicon glyphicon-lock"></span>Cadastrar Usuário</h4>
                     </div>
+                    <span id="msgAlerta" class="col-md-12 text-center alert">
+                        
+                    </span>
                     <div class="modal-body corpo">
-                        <form action="frontController" method="POST" >
-                            <input type="hidden" name="comando" value="AdicionarUsuario"/>
+                        
+                        <form>
+                            <!--<input type="hidden" name="comando" value="AdicionarUsuario"/>-->
                             <div class="form-group">
                                 <label for="nome">Nome/Login:</label>
-                                <input id="nome" class="form-control" required="required" type="text" name="nome"/>
+                                <input id="nome" class="form-control" type="text" name="nome"/>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input id="email" class="form-control" required="required" type="email" name="email"/>
+                                <input id="email" class="form-control" type="email" name="email"/>
                             </div>
                             <div class="form-group">
                                 <label for="senha">Senha:</label>
-                                <input id="senha" class="form-control" required="required" type="password" name="senha"/>
+                                <input id="senha" class="form-control" type="password" name="senha"/>
                             </div>
                             <div class="form-group">
                                 <label for="matricula">Matricula:</label>
-                                <input id="matricula" class="form-control" required="required" type="number" min="100000" max="999999" name="matricula"/>
+                                <input id="matricula" class="form-control" type="number" min="100000" max="999999" name="matricula"/>
                             </div>
                             <div class="form-group">
                                 <label for="papel">Papel:</label>
@@ -115,7 +119,7 @@
                                     <option>Assistente</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                            <button type="button" id="btnCadastrar" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
                         </form>
                     </div>
                 </div>
@@ -125,13 +129,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- Importando o js do bootstrap -->
         <script src="libs/bootstrap/bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#cadastrarUsuario").click(function () {
-                    $("#modalCadastrarUsuario").modal();
-                    console.log("clicado");
-                });
-            });
-        </script>
+        <script src="js/gerenciarUsuario.js"></script>
     </body>
 </html>
