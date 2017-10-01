@@ -1,50 +1,24 @@
 
 package com.ifpb.padroes.entidades;
 
-import com.ifpb.padroes.enums.EstadoMaterial;
+import java.io.Serializable;
+import javax.persistence.Entity;
 
-public class Material {
 
-    private int numeroTomabamento;
-    private String nome;
-    private EstadoMaterial estado;
+@Entity
+public class Material extends MaterialPrototype implements Serializable {
 
-    public Material(int numeroTomabamento, String nome, EstadoMaterial est) {
-        this.numeroTomabamento = numeroTomabamento;
-        this.nome = nome;
-        this.estado = est;
+    public Material(String nome) {
+        super(nome);
     }
 
     public Material() {
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getNumeroTomabamento() {
-        return numeroTomabamento;
-    }
-
-    public void setNumeroTomabamento(int numeroTomabamento) {
-        this.numeroTomabamento = numeroTomabamento;
-    }
-
-    public EstadoMaterial getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoMaterial estado) {
-        this.estado = estado;
+        super();
     }
 
     @Override
-    public String toString() {
-        return "Material{" + "numeroTomabamento=" + numeroTomabamento + ", nome=" + nome + ", estado=" + estado + '}';
-    }    
-    
+    public Material clonar(MaterialPrototype materialPrototype) {
+        return new Material(materialPrototype.getNome());
+    }
+
 }

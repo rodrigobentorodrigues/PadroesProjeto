@@ -7,6 +7,8 @@
     <class>com.ifpb.padroes.conversores.ConversorData</class>
     <class>com.ifpb.padroes.entidades.Bloco</class>
     <class>com.ifpb.padroes.entidades.Sala</class>
+    <class>com.ifpb.padroes.entidades.Material</class>
+    <class>com.ifpb.padroes.entidades.MaterialPrototype</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
