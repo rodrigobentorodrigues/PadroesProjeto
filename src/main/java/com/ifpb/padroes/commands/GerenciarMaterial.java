@@ -12,6 +12,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.ifpb.padroes.interfaces.MaterialDao;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 
 /**
  *
@@ -25,13 +27,12 @@ public class GerenciarMaterial implements Command{
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         requisicao.setAttribute("materiais", dao.listarTodos());
         
-        String url = resposta.encodeURL("listarMaterial.jsp");
+        RequestDispatcher dispatcher = requisicao.getRequestDispatcher("gerenciarMaterial.jsp");
         try {
-            resposta.sendRedirect(url);
-        } catch (IOException ex) {
-            
-        }
-        
+            dispatcher.forward(requisicao, resposta);
+        } catch (IOException | ServletException ex) {
+            ex.printStackTrace();
+        } 
     }
     
 }

@@ -8,26 +8,15 @@ package com.ifpb.padroes.entidades;
 import com.ifpb.padroes.enums.EstadoMaterial;
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author Rudan
  */
-@Entity
-@Table(name = "Material")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class MaterialPrototype implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(length = 7)
-    private int numeroTombamento;
+    
     @Column(length = 50)
     private String nome;
     protected EstadoMaterial estado;
