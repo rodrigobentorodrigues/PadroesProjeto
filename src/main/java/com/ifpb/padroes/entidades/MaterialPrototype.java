@@ -34,6 +34,14 @@ public abstract class MaterialPrototype implements Serializable {
         this.localAtual = "n/s";
     }
 
+    public int getTombamento() {
+        return tombamento;
+    }
+
+    public void setTombamento(int tombamento) {
+        this.tombamento = tombamento;
+    }
+
     public MaterialPrototype() {
     }
 

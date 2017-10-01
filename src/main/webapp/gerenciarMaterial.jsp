@@ -57,7 +57,7 @@
                   <c:forEach var="material" items="${materiais}">
                     <tr>
                       <td>${material.nome}</td>
-                      <td>aqui</td>
+                      <td>${material.tombamento}</td>
                       <td>${material.estado}</td>
                       <td>${material.localAtual}</td>
                       <td><button type="button" class="btn btn-primary" title="Devolver Material"><span class="glyphicon glyphicon-download"></span></button></td>
@@ -65,7 +65,7 @@
                       <td>
                           <form action="frontController" method="post">
                               <input type="hidden" name="comando" value="ExcluirMaterial">
-                              <input type="hidden" name="tombamento" value="1">
+                              <input type="hidden" name="tombamento" value="${material.tombamento}">
                               <button type="submit" class="btn btn-danger" title="Excluir Material"><span class="glyphicon glyphicon-trash"></span></button>
                           </form>
                       </td>
