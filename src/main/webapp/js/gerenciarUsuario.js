@@ -3,11 +3,13 @@
  */
 
 $(document).ready(function () {
+    // Abrir modal
     $("#cadastrarUsuario").click(function () {
         $("#modalCadastrarUsuario").modal();
         console.log("clicado");
     });
     
+    // Cadastrar Usuario
     $('#btnCadastrar').click(function(event) {
         event.preventDefault();
         
@@ -35,5 +37,14 @@ $(document).ready(function () {
                 .css('font-weight', 'bold')
                 .css('font-size', '18px');
         }
+    });
+    
+    // Pesquisar Usuario
+    $('#btnPesquisar').click(function(event) {
+        event.preventDefault();
+        
+        var pesquisa = $('#pesquisa').val();
+        
+        window.location = `/padroesprojeto/frontController?comando=GerenciarUsuarios&pesquisa=${pesquisa}`;
     });
 });

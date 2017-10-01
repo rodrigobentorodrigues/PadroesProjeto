@@ -42,9 +42,9 @@
                                 <!--</a>-->
                             </div>
                             <div class="input-group col-md-4">
-                                <input type="text" class="form-control" placeholder="Buscar usuario..." name="search">
+                                <input type="text" id="pesquisa" class="form-control" placeholder="Buscar usuario..." name="search">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    <button type="button" id="btnPesquisar" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                 </div>
                             </div>
                         </th>
