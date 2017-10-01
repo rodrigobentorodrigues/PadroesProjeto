@@ -50,19 +50,19 @@ public class GerenciadorUsuario implements UsuarioDao, Autentica {
         List<Usuario> usuarios = createQuery.getResultList();
         return usuarios;
     }
-    
+
     @Override
-    public Usuario buscaPorId(int id){
+    public Usuario buscaPorId(int id) {
         return em.find(Usuario.class, id);
     }
-    
+
     @Override
-    public Usuario autentica(String login, String senha){
+    public Usuario autentica(String login, String senha) {
         Query createQuery = em.createNamedQuery("Usuario.login", Usuario.class);
         createQuery.setParameter("login", login);
         createQuery.setParameter("senha", senha);
         List<Usuario> usuarios = createQuery.getResultList();
-        if(usuarios.isEmpty()){
+        if (usuarios.isEmpty()) {
             return null;
         } else {
             Usuario usuario = usuarios.get(0);

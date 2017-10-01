@@ -1,4 +1,3 @@
-
 package com.ifpb.padroes.daos;
 
 import com.ifpb.padroes.entidades.Feriado;
@@ -8,15 +7,15 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class GerenciadorFeriado implements FeriadoDao{
+public class GerenciadorFeriado implements FeriadoDao {
 
     private EntityManager em;
-    
-    public GerenciadorFeriado(){
+
+    public GerenciadorFeriado() {
         this.em = Persistence.createEntityManagerFactory("UPersistence").
                 createEntityManager();
     }
-    
+
     @Override
     public void adicionar(Feriado objeto) {
         em.getTransaction().begin();
@@ -52,5 +51,5 @@ public class GerenciadorFeriado implements FeriadoDao{
         return em.createQuery("SELECT f FROM Feriado f",
                 Feriado.class).getResultList();
     }
-    
+
 }

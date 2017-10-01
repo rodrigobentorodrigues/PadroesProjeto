@@ -6,15 +6,15 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class GerenciadorBloco implements BlocoDao{
+public class GerenciadorBloco implements BlocoDao {
 
     private EntityManager em;
-    
-    public GerenciadorBloco(){
+
+    public GerenciadorBloco() {
         this.em = Persistence.createEntityManagerFactory("UPersistence").
                 createEntityManager();
     }
-    
+
     @Override
     public void adicionar(Bloco objeto) {
         em.getTransaction().begin();
@@ -50,5 +50,5 @@ public class GerenciadorBloco implements BlocoDao{
         return em.createQuery("SELECT b FROM Bloco b",
                 Bloco.class).getResultList();
     }
-    
+
 }
