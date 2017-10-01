@@ -2,16 +2,17 @@
 package com.ifpb.padroes.daos;
 
 import com.ifpb.padroes.entidades.Feriado;
-import com.ifpb.padroes.interfaces.Dao;
+import com.ifpb.padroes.interfaces.FeriadoDao;
+
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class FeriadoDao implements Dao<Feriado>{
+public class GerenciadorFeriado implements FeriadoDao{
 
     private EntityManager em;
     
-    public FeriadoDao(){
+    public GerenciadorFeriado(){
         this.em = Persistence.createEntityManagerFactory("UPersistence").
                 createEntityManager();
     }

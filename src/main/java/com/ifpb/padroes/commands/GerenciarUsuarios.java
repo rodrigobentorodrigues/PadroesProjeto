@@ -1,15 +1,15 @@
 package com.ifpb.padroes.commands;
 
-import com.ifpb.padroes.daos.UsuarioDao;
+import com.ifpb.padroes.daos.GerenciadorUsuario;
 import com.ifpb.padroes.interfaces.Command;
-import com.ifpb.padroes.interfaces.Dao;
+import com.ifpb.padroes.interfaces.UsuarioDao;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class GerenciarUsuarios implements Command {
 
-    private Dao dao = new UsuarioDao();
+    private UsuarioDao dao = new GerenciadorUsuario();
 
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

@@ -1,19 +1,19 @@
 package com.ifpb.padroes.daos;
 
 import com.ifpb.padroes.entidades.Usuario;
-import com.ifpb.padroes.interfaces.Dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import com.ifpb.padroes.interfaces.Autentica;
+import com.ifpb.padroes.interfaces.UsuarioDao;
 import javax.persistence.Query;
 
-public class UsuarioDao implements Dao<Usuario>, Autentica {
+public class GerenciadorUsuario implements UsuarioDao, Autentica {
 
     private EntityManager em;
 
-    public UsuarioDao() {
+    public GerenciadorUsuario() {
         this.em = Persistence.createEntityManagerFactory("UPersistence").
                 createEntityManager();
     }

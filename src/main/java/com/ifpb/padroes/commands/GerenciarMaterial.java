@@ -6,12 +6,12 @@
 package com.ifpb.padroes.commands;
 
 import com.ifpb.padroes.daos.GerenciadorMaterial;
-import com.ifpb.padroes.daos.MaterialDao;
 import com.ifpb.padroes.interfaces.Command;
 
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.ifpb.padroes.interfaces.MaterialDao;
 
 /**
  *

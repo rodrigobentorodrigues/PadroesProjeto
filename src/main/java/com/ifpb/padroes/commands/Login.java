@@ -1,6 +1,6 @@
 package com.ifpb.padroes.commands;
 
-import com.ifpb.padroes.daos.UsuarioDao;
+import com.ifpb.padroes.daos.GerenciadorUsuario;
 import com.ifpb.padroes.entidades.Usuario;
 import com.ifpb.padroes.interfaces.Command;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 public class Login implements Command {
 
-    private Autentica aut = new UsuarioDao();
+    private Autentica aut = new GerenciadorUsuario();
 
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

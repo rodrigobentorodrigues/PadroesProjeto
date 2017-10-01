@@ -1,10 +1,10 @@
 
 package com.ifpb.padroes.commands;
 
-import com.ifpb.padroes.daos.FeriadoDao;
+import com.ifpb.padroes.daos.GerenciadorFeriado;
 import com.ifpb.padroes.entidades.Feriado;
 import com.ifpb.padroes.interfaces.Command;
-import com.ifpb.padroes.interfaces.Dao;
+import com.ifpb.padroes.interfaces.FeriadoDao;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AdicionarFeriado implements Command{
 
-    private Dao dao = new FeriadoDao();
+    private FeriadoDao dao = new GerenciadorFeriado();
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

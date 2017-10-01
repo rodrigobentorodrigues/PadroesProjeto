@@ -1,8 +1,8 @@
 package com.ifpb.padroes.commands;
 
-import com.ifpb.padroes.daos.BlocoDao;
+import com.ifpb.padroes.daos.GerenciadorBloco;
+import com.ifpb.padroes.interfaces.BlocoDao;
 import com.ifpb.padroes.interfaces.Command;
-import com.ifpb.padroes.interfaces.Dao;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class GerenciarBlocos implements Command {
 
-    private Dao dao = new BlocoDao();
+    private BlocoDao dao = new GerenciadorBloco();
 
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

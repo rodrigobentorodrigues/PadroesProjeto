@@ -1,4 +1,4 @@
-package com.ifpb.padroes.daos;
+package com.ifpb.padroes.interfaces;
 
 import com.ifpb.padroes.entidades.Material;
 import com.ifpb.padroes.entidades.MaterialPrototype;

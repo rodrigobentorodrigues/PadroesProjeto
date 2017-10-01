@@ -6,7 +6,6 @@
 package com.ifpb.padroes.commands;
 
 import com.ifpb.padroes.daos.GerenciadorMaterial;
-import com.ifpb.padroes.daos.MaterialDao;
 import com.ifpb.padroes.entidades.Material;
 import com.ifpb.padroes.entidades.MaterialPrototype;
 import com.ifpb.padroes.interfaces.Command;
@@ -16,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.ifpb.padroes.interfaces.MaterialDao;
 
 public class AdicionarMaterial implements Command{
 

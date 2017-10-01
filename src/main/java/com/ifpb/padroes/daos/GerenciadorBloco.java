@@ -1,16 +1,16 @@
 package com.ifpb.padroes.daos;
 
 import com.ifpb.padroes.entidades.Bloco;
-import com.ifpb.padroes.interfaces.Dao;
+import com.ifpb.padroes.interfaces.BlocoDao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class BlocoDao implements Dao<Bloco>{
+public class GerenciadorBloco implements BlocoDao{
 
     private EntityManager em;
     
-    public BlocoDao(){
+    public GerenciadorBloco(){
         this.em = Persistence.createEntityManagerFactory("UPersistence").
                 createEntityManager();
     }
