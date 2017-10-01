@@ -12,10 +12,6 @@ import javax.persistence.Id;
 @Entity
 public class Material extends MaterialPrototype implements Serializable {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int tombamento;
-    
     public Material(String nome) {
         super(nome);
     }
