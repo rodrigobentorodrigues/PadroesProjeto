@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /*
     comando=GerenciarUsuarios
-    pesquisa=Valor
+    pesquisa=Valor 
 */
 public class GerenciarUsuarios implements Command {
 
@@ -23,7 +23,8 @@ public class GerenciarUsuarios implements Command {
 //        requisicao.setAttribute("usuarios", dao.listarTodos());
         String pesquisa = requisicao.getParameter("pesquisa");
         
-        if(pesquisa.equals("")) {
+        
+        if((pesquisa == null) || (pesquisa.equals(""))) {
             requisicao.getSession().setAttribute("usuarios", dao.listarTodos());
         } else {
             List<Usuario> usuarios = dao.listarTodos();
