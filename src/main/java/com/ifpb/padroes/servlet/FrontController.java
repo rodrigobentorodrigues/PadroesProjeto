@@ -4,6 +4,8 @@ package com.ifpb.padroes.servlet;
 import com.ifpb.padroes.interfaces.Command;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
+import javax.enterprise.inject.spi.CDI;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,11 +26,13 @@ public class FrontController extends HttpServlet {
         PrintWriter pw = resp.getWriter();
         
         try {
-            Command command = (Command) Class.
-                    forName("com.ifpb.padroes.commands." + comando).newInstance();
+            // CDI
+//            Command command = (Command) Class.
+//                    forName("com.ifpb.padroes.commands." + comando).newInstance();
+            Command command = (Command) CDI.current().getBeanManager().getBeans("com.ifpb.padroes.commands." + comando).iterator().next();
+            
             command.execute(req, resp);
-        } catch (ClassNotFoundException | InstantiationException | 
-                IllegalAccessException ex) {
+        } catch (Exception ex) {
             pw.print(ex);
         } 
     }            
