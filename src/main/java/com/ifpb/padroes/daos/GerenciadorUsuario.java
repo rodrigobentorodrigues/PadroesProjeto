@@ -7,16 +7,22 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import com.ifpb.padroes.interfaces.Autentica;
 import com.ifpb.padroes.interfaces.UsuarioDao;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+//
+@Stateless
+@Local(UsuarioDao.class)
+public class GerenciadorUsuario implements UsuarioDao {
 
-public class GerenciadorUsuario implements UsuarioDao, Autentica {
-
+    @PersistenceContext(unitName = "UPersistence")
     private EntityManager em;
 
-    public GerenciadorUsuario() {
-        this.em = Persistence.createEntityManagerFactory("UPersistence").
-                createEntityManager();
-    }
+//    public GerenciadorUsuario() {
+//        this.em = Persistence.createEntityManagerFactory("UPersistence").
+//                createEntityManager();
+//    }
 
     @Override
     public void adicionar(Usuario objeto) {

@@ -11,5 +11,5 @@ public interface UsuarioDao{
     void atualizar(Usuario usuario);
     Usuario buscaPorId(int id);
     List<Usuario> listarTodos();
-    
+    Usuario autentica(String login, String senha);
 }
