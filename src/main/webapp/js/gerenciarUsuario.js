@@ -40,11 +40,11 @@ $(document).ready(function () {
     });
     
     // Pesquisar Usuario
-    $('#btnPesquisar').click(function(event) {
-        event.preventDefault();
-        
-        var pesquisa = $('#pesquisa').val();
-        
-        window.location = `/padroesprojeto/frontController?comando=GerenciarUsuarios&pesquisa=${pesquisa}`;
-    });
+//    $('#btnPesquisar').click(function(event) {
+//        event.preventDefault();
+//        
+//        var pesquisa = $('#pesquisa').val();
+//        
+//        window.location = `/padroesprojeto/frontController?comando=GerenciarUsuarios&pesquisa=${pesquisa}`;
+//    });
 });

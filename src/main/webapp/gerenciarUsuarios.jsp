@@ -11,23 +11,7 @@
         <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
-        <style>
-            .modal-header, h4, .close {
-                background-color: #5cb85c;
-                color:white !important;
-                text-align: center;
-                font-size: 30px;
-            }
-            .modal-footer {
-                background-color: #f9f9f9;
-            }
-            .corpo{
-                padding:40px 50px;
-            }
-            .cabecalho{
-                padding:35px 50px;
-            }
-        </style>
+        
     </head>
     <body>
         <div class="container">
@@ -41,11 +25,16 @@
                                 <button type="button" class="btn btn-primary" title="Adicionar Usuario" id="cadastrarUsuario"><span class="glyphicon glyphicon-plus"></span></button>
                                 <!--</a>-->
                             </div>
-                            <div class="input-group col-md-4">
-                                <input type="text" id="pesquisa" class="form-control" placeholder="Buscar usuario..." name="search">
-                                <div class="input-group-btn">
-                                    <button type="button" id="btnPesquisar" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
+                            <div class="input-group col-md-10">
+                                <form class="form-inline" action="frontController" method="POST">
+                                    <input type="hidden" name="comando" value="GerenciarUsuarios" />
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Buscar usuario..." name="pesquisa">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    
+                                </form>
                             </div>
                         </th>
                     </tr>
