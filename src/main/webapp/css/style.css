@@ -25,3 +25,23 @@
     margin-top: 8px;
     font-size: 16px;
 }
+
+/* Páginas de Gerenciamento */
+.modal-header, h4, .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;    
+}
+            
+.modal-footer {
+    background-color: #f9f9f9;
+}
+            
+.corpo{
+    padding:40px 50px;            
+}
+            
+.cabecalho{
+    padding:35px 50px;    
+}

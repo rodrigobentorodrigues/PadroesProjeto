@@ -11,23 +11,7 @@
         <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
-        <style>
-            .modal-header, h4, .close {
-                background-color: #5cb85c;
-                color:white !important;
-                text-align: center;
-                font-size: 30px;
-            }
-            .modal-footer {
-                background-color: #f9f9f9;
-            }
-            .corpo{
-                padding:40px 50px;
-            }
-            .cabecalho{
-                padding:35px 50px;
-            }
-        </style>
+        
     </head>
     <body>
         <div class="container">
@@ -47,7 +31,9 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Buscar usuario..." name="pesquisa">
                                     </div>
+
                                     <button type="submit" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    
                                 </form>
                             </div>
                         </th>
