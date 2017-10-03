@@ -26,11 +26,11 @@ public class GerenciadorMaterial implements MaterialDao{
     }
 
     @Override
-    public void adicionar(MaterialDTO materialPrototype, int quantidade) {
+    public void adicionar(Material material, int quantidade) {
         em.getTransaction().begin();
         for(int k=1; k<=quantidade; k++){
-            Material novo = materialPrototype.clonar(materialPrototype);
-            em.persist(novo);
+            //Material novo = materialPrototype.clonar(materialPrototype);
+            //em.persist(novo);
         }
         em.getTransaction().commit();
         em.close();

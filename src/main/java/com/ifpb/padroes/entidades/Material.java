@@ -21,8 +21,7 @@ public class Material implements Serializable {
     public Material() {
     }
 
-    public Material(int tombamento, String nome) {
-        this.tombamento = tombamento;
+    public Material(String nome) {
         this.nome = nome;
     }
         

@@ -26,9 +26,9 @@ public class AdicionarMaterial implements Command{
         String descricao = requisicao.getParameter("descricao");
         int quantidade = Integer.parseInt(requisicao.getParameter("quantidade"));
    
-        MaterialDTO materialPrototype = new Material(descricao);
+        Material material = new Material(descricao);
         
-        dao.adicionar(materialPrototype, quantidade);
+        dao.adicionar(material, quantidade);
         
         PrintWriter out;
         try {
