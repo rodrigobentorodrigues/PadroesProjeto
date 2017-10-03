@@ -6,7 +6,7 @@
 package com.ifpb.padroes.daos;
 
 import com.ifpb.padroes.entidades.Material;
-import com.ifpb.padroes.entidades.MaterialPrototype;
+import com.ifpb.padroes.entidades.MaterialDTO;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -26,7 +26,7 @@ public class GerenciadorMaterial implements MaterialDao{
     }
 
     @Override
-    public void adicionar(MaterialPrototype materialPrototype, int quantidade) {
+    public void adicionar(MaterialDTO materialPrototype, int quantidade) {
         em.getTransaction().begin();
         for(int k=1; k<=quantidade; k++){
             Material novo = materialPrototype.clonar(materialPrototype);
