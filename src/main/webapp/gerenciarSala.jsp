@@ -89,8 +89,8 @@
                   <form role="form" action="frontController" method="post">
                       <input type="hidden" name="comando" value="AdicionarSala"/>
                       <div class="form-group">
-                        <label for="descricao"><span class="glyphicon glyphicon-user"></span>Descriçao</label>
-                        <input type="text" class="form-control"  maxlength="50" name="descricao" id="descricao" placeholder="Descrição">
+                        <label for="nome"><span class="glyphicon glyphicon-user"></span>Descriçao</label>
+                        <input type="text" class="form-control"  maxlength="50" name="nome" id="nome" placeholder="Descrição">
                       </div>
                       
                       <div class="form-group">
