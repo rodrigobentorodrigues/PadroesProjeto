@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Materiais</title>
+        <title>Salas</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Estilo para resetar as config. dos navegadores -->
         <link href="css/reset.css" rel="stylesheet">
@@ -32,7 +32,7 @@
                 <tr>
                     <th colspan="4" class="teste">
                         <div class="btn-group col-md-1">
-                            <button type="button" class="btn btn-primary" title="Adicionar Material" id="botaoCadastrarMaterial"><span class="glyphicon glyphicon-plus"></span></button>
+                            <button type="button" class="btn btn-primary" title="Adicionar Material" id="botaoCadastrarSala"><span class="glyphicon glyphicon-plus"></span></button>
                         </div>
                         <div class="input-group col-md-4">
                             <input type="text" class="form-control" placeholder="Search" name="search">
@@ -44,29 +44,28 @@
                 </tr>
                     
                 <tr>
-                  <th>Material</th>
-                  <th>Tombamento</th>
+                  <th>Sala</th>
+                  <th>Bloco</th>
+                  <th>Capacidade</th>
                   <th>Status</th>
-                  <th>Local</th>
-                  <th>Devolver</th>
                   <th>Editar</th>
                   <th>Excluir</th>
                 </tr>
               </thead>
               <tbody>
-                  <c:forEach var="material" items="${materiais}">
+                  <c:forEach var="sala" items="${salas}">
                     <tr>
-                      <td>${material.nome}</td>
-                      <td>${material.tombamento}</td>
-                      <td>${material.estado}</td>
-                      <td>${material.localAtual}</td>
+                      <td>${sala.nome}</td>
+                      <td>${sala.bloco}</td>
+                      <td>${sala.capacidade}</td>
+                      <td>${sala.status}</td>
                       <td><button type="button" class="btn btn-primary" title="Devolver Material"><span class="glyphicon glyphicon-download"></span></button></td>
                       <td><button type="button" class="btn btn-success" title="Editar Material"><span class="glyphicon glyphicon-pencil"></span></button></td>
                       <td>
                           <form action="frontController" method="post">
-                              <input type="hidden" name="comando" value="ExcluirMaterial">
-                              <input type="hidden" name="tombamento" value="${material.tombamento}">
-                              <button type="submit" class="btn btn-danger" title="Excluir Material"><span class="glyphicon glyphicon-trash"></span></button>
+                              <input type="hidden" name="comando" value="ExcluirSala">
+                              <input type="hidden" name="idSala" value="${sala.id}">
+                              <button type="submit" class="btn btn-danger" title="Excluir Sala"><span class="glyphicon glyphicon-trash"></span></button>
                           </form>
                       </td>
                           
@@ -77,47 +76,61 @@
           </div>
         
         <!-- Modal -->
-        <div class="modal fade" id="modalCadastrarMaterial" role="dialog">
+        <div class="modal fade" id="modalCadastrarSala" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header" style="padding:35px 50px;">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4><span class="glyphicon glyphicon-lock"></span>Cadastrar Material</h4>
+                <h4><span class="glyphicon glyphicon-home"></span>Cadastrar Sala</h4>
               </div>
               <div class="modal-body" style="padding:40px 50px;">
                   <form role="form" action="frontController" method="post">
-                      <input type="hidden" name="comando" value="AdicionarMaterial"/>
+                      <input type="hidden" name="comando" value="AdicionarSala"/>
                       <div class="form-group">
                         <label for="descricao"><span class="glyphicon glyphicon-user"></span>Descriçao</label>
                         <input type="text" class="form-control"  maxlength="50" name="descricao" id="descricao" placeholder="Descrição">
                       </div>
+                      
                       <div class="form-group">
-                        <label for="quantidade"><span class="glyphicon glyphicon-eye-open"></span>Quantidade</label>
-                        <input type="Number" class="form-control" name="quantidade" id="quantidade">
+                        <label for="bloco"><span class="glyphicon glyphicon-eye-open"></span>Bloco</label>
+                        <input type="number" class="form-control" name="bloco" id="bloco">
                       </div>
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                      
+                      <div class="form-group">
+                        <label for="capacidade"><span class="glyphicon glyphicon-eye-open"></span>Capacidade</label>
+                        <input type="number" class="form-control" name="capacidade" id="capacidade">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="sel1">Tipo:</label>
+                        <select class="form-control" name="tipo" id="tipo">
+                          <option>Comum</option>
+                          <option>Laboratorio</option>
+                          <option>Oficina</option>
+                          <option>Inteligente</option>
+                        </select>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
                 </form>
               </div>
             </div>
-
           </div>
         </div> 
              
 
         <!-- Importando o jQuery -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-          <!-- Importando o js do bootstrap -->
-          <script src="libs/bootstrap/bootstrap.min.js"></script>
+        <!-- Importando o js do bootstrap -->
+        <script src="libs/bootstrap/bootstrap.min.js"></script>
 
-
- 
         <script>
             $(document).ready(function(){
-                $("#botaoCadastrarMaterial").click(function(){
-                    $("#modalCadastrarMaterial").modal();
+                $("#botaoCadastrarSala").click(function(){
+                    $("#modalCadastrarSala").modal();
                 });
             });
         </script>
