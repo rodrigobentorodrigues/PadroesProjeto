@@ -4,41 +4,33 @@ import com.ifpb.padroes.entidades.Feriado;
 import com.ifpb.padroes.interfaces.FeriadoDao;
 
 import java.util.List;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
+@Stateless
+@Local(FeriadoDao.class)
 public class GerenciadorFeriado implements FeriadoDao {
 
+    @PersistenceContext
     private EntityManager em;
-
-    public GerenciadorFeriado() {
-        this.em = Persistence.createEntityManagerFactory("UPersistence").
-                createEntityManager();
-    }
 
     @Override
     public void adicionar(Feriado objeto) {
-        em.getTransaction().begin();
         em.persist(objeto);
-        em.getTransaction().commit();
-        em.close();
     }
 
     @Override
     public void remover(Feriado objeto) {
         Feriado auxiliar = buscaPorId(objeto.getId());
-        em.getTransaction().begin();
         em.remove(auxiliar);
-        em.getTransaction().commit();
-        em.close();
     }
 
     @Override
     public void atualizar(Feriado objeto) {
-        em.getTransaction().begin();
         em.merge(objeto);
-        em.getTransaction().commit();
-        em.close();
     }
 
     @Override

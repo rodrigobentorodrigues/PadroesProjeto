@@ -7,22 +7,19 @@ import com.ifpb.padroes.interfaces.UsuarioDao;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/*
-    comando=GerenciarUsuarios
-    pesquisa=Valor 
-*/
 public class GerenciarUsuarios implements Command {
 
-    private UsuarioDao dao = new GerenciadorUsuario();
+    @EJB
+    private UsuarioDao dao;
 
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
 //        requisicao.setAttribute("usuarios", dao.listarTodos());
-        String pesquisa = requisicao.getParameter("pesquisa");
-        
+        String pesquisa = requisicao.getParameter("pesquisa");        
         
         if((pesquisa == null) || (pesquisa.equals(""))) {
             requisicao.getSession().setAttribute("usuarios", dao.listarTodos());

@@ -8,12 +8,14 @@ import com.ifpb.padroes.interfaces.FeriadoDao;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class AdicionarFeriado implements Command{
 
-    private FeriadoDao dao = new GerenciadorFeriado();
+    @EJB
+    private FeriadoDao dao;
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

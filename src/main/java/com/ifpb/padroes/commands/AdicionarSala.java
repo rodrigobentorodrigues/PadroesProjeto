@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,7 +27,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AdicionarSala implements Command{
     
-    private SalaDao salaDao = new GerenciadorSala();
+    @EJB
+    private SalaDao salaDao;
     private BlocoDao blocoDao = new GerenciadorBloco();
     
     @Override
@@ -34,13 +36,20 @@ public class AdicionarSala implements Command{
         String Nome = requisicao.getParameter("nome");
         int idBloco = Integer.parseInt(requisicao.getParameter("idBloco"));
         int capacidade = Integer.parseInt(requisicao.getParameter("capacidade"));
-        String tipo = requisicao.getParameter("Tipo");
+        String tipo = requisicao.getParameter("tipo");
         
         Bloco bloco = blocoDao.buscaPorId(idBloco);
         
-        Sala sala= new Sala(Nome, bloco, capacidade, TipoSala.Comum);
+        try {
+            PrintWriter out = resposta.getWriter();
+            out.println(bloco);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         
-        salaDao.adicionar(sala);
+        //Sala sala= new Sala(Nome, bloco, capacidade, TipoSala.Comum);
+        
+        //salaDao.adicionar(sala);
     }
     
 }

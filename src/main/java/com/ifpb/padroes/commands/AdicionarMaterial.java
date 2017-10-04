@@ -16,10 +16,12 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.ifpb.padroes.interfaces.MaterialDao;
+import javax.ejb.EJB;
 
 public class AdicionarMaterial implements Command{
 
-    private MaterialDao dao = new GerenciadorMaterial();
+    @EJB
+    private MaterialDao dao;
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

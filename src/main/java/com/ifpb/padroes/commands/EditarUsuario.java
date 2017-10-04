@@ -6,6 +6,7 @@ import com.ifpb.padroes.entidades.Usuario;
 import com.ifpb.padroes.interfaces.Command;
 import com.ifpb.padroes.interfaces.UsuarioDao;
 import java.io.IOException;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class EditarUsuario implements Command {
 
-    private UsuarioDao dao = new GerenciadorUsuario();
+    @EJB
+    private UsuarioDao dao;
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

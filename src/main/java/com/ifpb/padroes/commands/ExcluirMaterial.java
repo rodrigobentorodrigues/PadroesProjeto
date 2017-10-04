@@ -8,6 +8,7 @@ package com.ifpb.padroes.commands;
 import com.ifpb.padroes.daos.GerenciadorMaterial;
 import com.ifpb.padroes.interfaces.Command;
 import com.ifpb.padroes.interfaces.MaterialDao;
+import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ExcluirMaterial implements Command{
     
-    MaterialDao dao = new GerenciadorMaterial();
+    @EJB
+    private MaterialDao dao;
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

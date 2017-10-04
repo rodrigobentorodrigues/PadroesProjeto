@@ -6,6 +6,7 @@ import com.ifpb.padroes.entidades.Bloco;
 import com.ifpb.padroes.interfaces.BlocoDao;
 import com.ifpb.padroes.interfaces.Command;
 import java.io.IOException;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class EditarBloco implements Command{
 
-    private BlocoDao dao = new GerenciadorBloco();
+    @EJB
+    private BlocoDao dao;
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

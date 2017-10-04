@@ -11,7 +11,7 @@ import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-//
+
 @Stateless
 @Local(UsuarioDao.class)
 public class GerenciadorUsuario implements UsuarioDao {
@@ -19,34 +19,20 @@ public class GerenciadorUsuario implements UsuarioDao {
     @PersistenceContext(unitName = "UPersistence")
     private EntityManager em;
 
-//    public GerenciadorUsuario() {
-//        this.em = Persistence.createEntityManagerFactory("UPersistence").
-//                createEntityManager();
-//    }
-
     @Override
     public void adicionar(Usuario objeto) {
-        em.getTransaction().begin();
         em.persist(objeto);
-        em.getTransaction().commit();
-        em.close();
     }
 
     @Override
     public void remover(Usuario objeto) {
         Usuario auxiliar = buscaPorId(objeto.getId());
-        em.getTransaction().begin();
         em.remove(auxiliar);
-        em.getTransaction().commit();
-        em.close();
     }
 
     @Override
     public void atualizar(Usuario objeto) {
-        em.getTransaction().begin();
         em.merge(objeto);
-        em.getTransaction().commit();
-        em.close();
     }
 
     @Override

@@ -8,13 +8,13 @@ package com.ifpb.padroes.daos;
 import com.ifpb.padroes.entidades.Sala;
 import com.ifpb.padroes.interfaces.SalaDao;
 import java.util.List;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author rudan
- */
+@Stateless
+@Local(SalaDao.class)
 public class GerenciadorSala implements SalaDao{
     
     private EntityManager em;
@@ -25,9 +25,7 @@ public class GerenciadorSala implements SalaDao{
     
     @Override
     public void adicionar(Sala sala) {
-        em.getTransaction().begin();
         em.persist(sala);
-        em.getTransaction().commit();
     }
 
     @Override

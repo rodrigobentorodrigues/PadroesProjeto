@@ -95,7 +95,7 @@
                       
                       <div class="form-group">
                         <label for="bloco"><span class="glyphicon glyphicon-eye-open"></span>Bloco</label>
-                        <input type="number" class="form-control" name="bloco" id="bloco">
+                        <input type="number" class="form-control" name="idBloco" id="idBloco">
                       </div>
                       
                       <div class="form-group">
@@ -106,10 +106,10 @@
                       <div class="form-group">
                         <label for="sel1">Tipo:</label>
                         <select class="form-control" name="tipo" id="tipo">
-                          <option>Comum</option>
-                          <option>Laboratorio</option>
-                          <option>Oficina</option>
-                          <option>Inteligente</option>
+                          <option value="Comum">Comum</option>
+                          <option value="Laboratorio">Laboratorio</option>
+                          <option value="Oficina">Oficina</option>
+                          <option value="Inteligente">Inteligente</option>
                         </select>
                       </div>
                       

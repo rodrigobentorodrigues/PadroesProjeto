@@ -8,12 +8,14 @@ import com.ifpb.padroes.interfaces.Command;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class AtualizarBloco implements Command{
 
-    private BlocoDao dao = new GerenciadorBloco();
+    @EJB
+    private BlocoDao dao;
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

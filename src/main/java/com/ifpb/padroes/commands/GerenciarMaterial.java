@@ -12,6 +12,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.ifpb.padroes.interfaces.MaterialDao;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 
@@ -21,7 +22,8 @@ import javax.servlet.ServletException;
  */
 public class GerenciarMaterial implements Command{
 
-    private MaterialDao dao = new GerenciadorMaterial();
+    @EJB
+    private MaterialDao dao;
         
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {

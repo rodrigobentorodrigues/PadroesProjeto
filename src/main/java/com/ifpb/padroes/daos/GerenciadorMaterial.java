@@ -12,37 +12,29 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import com.ifpb.padroes.interfaces.MaterialDao;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author Rudan
- */
+@Stateless
+@Local(MaterialDao.class)
 public class GerenciadorMaterial implements MaterialDao{
     
+    @PersistenceContext()
     private EntityManager em;
-
-    public GerenciadorMaterial() {
-        this.em = Persistence.createEntityManagerFactory("UPersistence").createEntityManager();
-    }
 
     @Override
     public void adicionar(Material material, int quantidade) {
-        em.getTransaction().begin();
         for(int k=1; k<=quantidade; k++){
             //Material novo = materialPrototype.clonar(materialPrototype);
             //em.persist(novo);
         }
-        em.getTransaction().commit();
-        em.close();
     }
 
     @Override
     public void remover(int tombamento) {
-        em.getTransaction().begin();
         Material material = em.find(Material.class, tombamento);
         em.remove(material);
-        em.getTransaction().commit();
-        em.close();
     }
 
     @Override
