@@ -15,7 +15,7 @@ public class GerenciarUsuarios implements Command {
 
     @EJB
     private UsuarioDao dao;
-
+    
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
 //        requisicao.setAttribute("usuarios", dao.listarTodos());
@@ -32,7 +32,7 @@ public class GerenciarUsuarios implements Command {
             }
             
             requisicao.getSession().setAttribute("usuarios", resultPesquisa);
-        }     
+        }
         
         String url = resposta.encodeURL("gerenciarUsuarios.jsp");
         try {
@@ -44,5 +44,6 @@ public class GerenciarUsuarios implements Command {
         }
 
     }
+    
 
 }

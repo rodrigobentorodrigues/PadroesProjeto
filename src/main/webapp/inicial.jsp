@@ -19,5 +19,7 @@
         <a href="frontController?comando=GerenciarUsuarios">Gerenciar Usuarios</a>
         <a href="frontController?comando=GerenciarFeriados">Gerenciar Feriados</a>
         <a href="frontController?comando=GerenciarBlocos">Gerenciar Blocos</a>
+        <a href="frontController?comando=GerenciarMaterial">Gerenciar Material</a>
+        <!--<a href="frontController?comando=GerenciarBlocos">Gerenciar Sala</a>-->
     </body>
 </html>
