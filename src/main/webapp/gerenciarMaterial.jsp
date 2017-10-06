@@ -34,11 +34,16 @@
                         <div class="btn-group col-md-1">
                             <button type="button" class="btn btn-primary" title="Adicionar Material" id="botaoCadastrarMaterial"><span class="glyphicon glyphicon-plus"></span></button>
                         </div>
-                        <div class="input-group col-md-4">
-                            <input type="text" class="form-control" placeholder="Search" name="search">
-                            <div class="input-group-btn">
-                              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                            </div>
+                        <div class="input-group col-md-10">
+                            <form class="form-inline" action="frontController" method="POST">
+                                <input type="hidden" name="comando" value="GerenciarMaterial" />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Buscar material..." name="pesquisa">
+                                </div>
+
+                                <button type="submit" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    
+                            </form>
                         </div>
                     </th>
                 </tr>
