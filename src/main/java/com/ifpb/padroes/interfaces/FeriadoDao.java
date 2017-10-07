@@ -11,5 +11,6 @@ public interface FeriadoDao{
     void atualizar(Feriado feriado);
     Feriado buscaPorId(int id);
     List<Feriado> listarTodos();
+    void persistirTodosFeriados(List<Feriado> feriados);
     
 }
