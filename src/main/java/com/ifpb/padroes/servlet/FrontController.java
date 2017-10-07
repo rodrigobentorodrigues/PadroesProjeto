@@ -15,10 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "front", urlPatterns = "/frontController")
-@MultipartConfig(fileSizeThreshold=1024*1024*10,    // 10 MB 
-                 maxFileSize=1024*1024*100,          // 100 MB
-                 maxRequestSize=1024*1024*100,      // 100 MB
-                 location="/")
+@MultipartConfig
 public class FrontController extends HttpServlet {
 
     @Override
