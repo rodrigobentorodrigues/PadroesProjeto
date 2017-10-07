@@ -104,18 +104,18 @@ public class ImportarFeriados implements Command {
         System.out.println(file);
         Reader reader = new FileReader(file);
         Iterable<CSVRecord> registros = CSVFormat.RFC4180.parse(reader);
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         List<Feriado> feriados = new ArrayList<>();
 //        
         for(CSVRecord registro: registros) {
             LocalDate localDate = LocalDate.parse(registro.get(0), dateTimeFormatter);
             String nomeFeriado = registro.get(2);
             Feriado f = new Feriado(nomeFeriado, localDate);
-            System.out.println(f.toString());
-//            feriados.add(f);
+//            System.out.println(f.toString());
+            feriados.add(f);
         }
         
-//        dao.persistirTodosFeriados(feriados);
+        dao.persistirTodosFeriados(feriados);
     }
     
 }
