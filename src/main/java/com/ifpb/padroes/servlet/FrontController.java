@@ -4,18 +4,21 @@ package com.ifpb.padroes.servlet;
 import com.ifpb.padroes.interfaces.Command;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.enterprise.inject.Any;
 import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.util.AnnotationLiteral;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "front", urlPatterns = "/frontController")
+@MultipartConfig(fileSizeThreshold=1024*1024*10,    // 10 MB 
+                 maxFileSize=1024*1024*100,          // 100 MB
+                 maxRequestSize=1024*1024*100,      // 100 MB
+                 location="/")
 public class FrontController extends HttpServlet {
 
     @Override
