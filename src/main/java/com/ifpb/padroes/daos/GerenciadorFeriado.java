@@ -44,4 +44,11 @@ public class GerenciadorFeriado implements FeriadoDao {
                 Feriado.class).getResultList();
     }
 
+    @Override
+    public void persistirTodosFeriados(List<Feriado> feriados) {
+        for(Feriado f: feriados) {
+            this.adicionar(f);
+        }
+    }
+
 }
