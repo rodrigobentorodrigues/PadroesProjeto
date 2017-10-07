@@ -42,6 +42,46 @@ public class ImportarFeriados implements Command {
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         
+        try {
+            File file = this.tratamentoArquivoCSV(requisicao);
+            if(file != null) this.pesistenciaCSV(file);
+        } catch (IOException ex) {
+            Logger.getLogger(ImportarFeriados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            resposta.sendRedirect("frontController?comando=GerenciarFeriados");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    /*
+        Método que utiliza o Apache Commons para tratar o CSV e persistir
+    */
+    private void pesistenciaCSV(File file) throws FileNotFoundException, IOException {
+        System.out.println(file);
+        Reader reader = new FileReader(file);
+        Iterable<CSVRecord> registros = CSVFormat.RFC4180.parse(reader);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        List<Feriado> feriados = new ArrayList<>();
+        
+        for(CSVRecord registro: registros) {
+            LocalDate localDate = LocalDate.parse(registro.get(0), dateTimeFormatter);
+            String nomeFeriado = registro.get(2);
+            Feriado f = new Feriado(nomeFeriado, localDate);
+//            System.out.println(f.toString());
+            feriados.add(f);
+        }
+        
+        dao.persistirTodosFeriados(feriados);
+    }
+    
+    /*
+        Método para capturar o arquivo CSV vindo da requisição e o armazenando em uma pasta
+        Depois, ele arquivo é lido e é retornado 
+    */
+    private File tratamentoArquivoCSV(HttpServletRequest requisicao) {
         Part path = null;
         OutputStream outputStream = null;
         File file = null;
@@ -86,36 +126,7 @@ public class ImportarFeriados implements Command {
             }
         }
         
-        // Chamando método para tratar o csv
-        try {
-            if(file != null) this.tratarCSV(file);
-        } catch (IOException ex) {
-            Logger.getLogger(ImportarFeriados.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            resposta.sendRedirect("frontController?comando=GerenciarFeriados");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-    
-    private void tratarCSV(File file) throws FileNotFoundException, IOException {
-        System.out.println(file);
-        Reader reader = new FileReader(file);
-        Iterable<CSVRecord> registros = CSVFormat.RFC4180.parse(reader);
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        List<Feriado> feriados = new ArrayList<>();
-//        
-        for(CSVRecord registro: registros) {
-            LocalDate localDate = LocalDate.parse(registro.get(0), dateTimeFormatter);
-            String nomeFeriado = registro.get(2);
-            Feriado f = new Feriado(nomeFeriado, localDate);
-//            System.out.println(f.toString());
-            feriados.add(f);
-        }
-        
-        dao.persistirTodosFeriados(feriados);
+        return file;
     }
     
 }
