@@ -6,10 +6,9 @@
 package com.ifpb.padroes.daos;
 
 import com.ifpb.padroes.entidades.Material;
-import com.ifpb.padroes.entidades.MaterialDTO;
+import com.ifpb.padroes.entidades.MaterialPrototype;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import com.ifpb.padroes.interfaces.MaterialDao;
 import javax.ejb.Local;
@@ -24,10 +23,10 @@ public class GerenciadorMaterial implements MaterialDao{
     private EntityManager em;
 
     @Override
-    public void adicionar(Material material, int quantidade) {
+    public void adicionar(MaterialPrototype materialPrototype, int quantidade) {
         for(int k=1; k<=quantidade; k++){
-            //Material novo = materialPrototype.clonar(materialPrototype);
-            //em.persist(novo);
+            Material novo = materialPrototype.clonar(materialPrototype);
+            em.persist(novo);
         }
     }
 

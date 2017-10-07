@@ -5,9 +5,8 @@
  */
 package com.ifpb.padroes.commands;
 
-import com.ifpb.padroes.daos.GerenciadorMaterial;
 import com.ifpb.padroes.entidades.Material;
-import com.ifpb.padroes.entidades.MaterialDTO;
+import com.ifpb.padroes.entidades.MaterialPrototype;
 import com.ifpb.padroes.interfaces.Command;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,12 +24,13 @@ public class AdicionarMaterial implements Command{
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
+        
         String descricao = requisicao.getParameter("descricao");
         int quantidade = Integer.parseInt(requisicao.getParameter("quantidade"));
    
-        Material material = new Material(descricao);
+        MaterialPrototype materialPrototype = new Material(descricao);
         
-        dao.adicionar(material, quantidade);
+        dao.adicionar(materialPrototype, quantidade);
         
         PrintWriter out;
         try {
