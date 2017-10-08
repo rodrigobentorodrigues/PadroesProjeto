@@ -53,18 +53,17 @@
                     <form action="frontController" method="POST">
                         <input type="hidden" name="comando" value="EditarUsuario"/>
                         <input type="hidden" name="id" value="${usuario.id}"/>
-                        <td><button title="Editar" class="btn btn-info col-md-5" type="submit" value="Editar"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                        <td><button title="Editar" class="btn btn-info col-sd-6" type="submit" value="Editar"><span class="glyphicon glyphicon-pencil"></span></button></td>
                     </form>
                     <form action="frontController" method="POST">
                         <input type="hidden" name="comando" value="ExcluirUsuario"/>
                         <input type="hidden" name="id" value="${usuario.id}"/>
-                        <td><button class="btn btn-danger col-md-5" type="submit" value="Excluir"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        <td><button class="btn btn-danger col-sd-6" type="submit" value="Excluir"><span class="glyphicon glyphicon-trash"></span></button></td>
                     </form>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
-            <!--<a href="inicial.jsp">Voltar</a>-->
         </div>
         <div class="modal fade" role="dialog" id="modalCadastrarUsuario" >
             <div class="modal-dialog">

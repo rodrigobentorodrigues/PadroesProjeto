@@ -19,7 +19,8 @@ import javax.persistence.SequenceGenerator;
         initialValue = 1, allocationSize = 1)
 @NamedQueries(
 @NamedQuery(name = "Usuario.login", 
-        query = "SELECT u FROM Usuario u WHERE u.nome = :login AND u.senha = :senha")
+        query = "SELECT u FROM Usuario u WHERE u.nome = :login AND u.senha = :senha"
+                + " OR u.email = :email AND u.senha = :senha")
 )
 public class Usuario implements Serializable {
 

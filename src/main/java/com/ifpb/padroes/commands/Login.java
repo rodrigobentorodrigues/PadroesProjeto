@@ -18,10 +18,7 @@ public class Login implements Command {
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         try {
             String login = requisicao.getParameter("login");
-            String senha = requisicao.getParameter("senha");
-            
-//            System.out.println("Login: " + login + " Senha: " + senha);
-            
+            String senha = requisicao.getParameter("senha");            
             Usuario auxiliar = dao.autentica(login, senha);
             if (auxiliar != null) {
                 HttpSession sessao = requisicao.getSession();

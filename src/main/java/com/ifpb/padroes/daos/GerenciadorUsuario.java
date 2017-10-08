@@ -53,6 +53,7 @@ public class GerenciadorUsuario implements UsuarioDao {
         Query createQuery = em.createNamedQuery("Usuario.login", Usuario.class);
         createQuery.setParameter("login", login);
         createQuery.setParameter("senha", senha);
+        createQuery.setParameter("email", login);
         List<Usuario> usuarios = createQuery.getResultList();
         if (usuarios.isEmpty()) {
             return null;
