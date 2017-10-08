@@ -11,7 +11,7 @@
         <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
-        
+
     </head>
     <body>
         <div class="container">
@@ -31,33 +31,29 @@
                         </th>
                     </tr>
                     <tr>
-<!--                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Matricula</th>
-                        <th>Papel</th>       
+                        <th>Nome</th>  
+                        <th>Data</th>
                         <th>Editar</th>
-                        <th>Excluir</th>                        -->
+                        <th>Excluir</th>                        
                     </tr>
                 </thead>
                 <tbody>
-                    <%--<c:forEach var="usuario" items="${usuarios}">--%>
-<!--                        <tr>
-                            <td>${usuario.nome}</td>
-                            <td>${usuario.email}</td>
-                            <td>${usuario.matricula}</td>
-                            <td>${usuario.papel}</td>
+                    <c:forEach var="feriado" items="${feriados}">
+                        <tr>
+                            <td>${feriado.nome}</td>
+                            <td>${feriado.dataFeriado}</td>
                     <form action="frontController" method="POST">
-                        <input type="hidden" name="comando" value="EditarUsuario"/>
-                        <input type="hidden" name="id" value="${usuario.id}"/>
-                        <td><button title="Editar" class="btn btn-info col-md-5" type="submit" value="Editar"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                        <input type="hidden" name="comando" value="EditarFeriado"/>
+                        <input type="hidden" name="id" value="${feriado.id}"/>
+                        <td><button title="Editar" class="btn btn-info col-sd-6" type="submit" value="Editar"><span class="glyphicon glyphicon-pencil"></span></button></td>
                     </form>
                     <form action="frontController" method="POST">
-                        <input type="hidden" name="comando" value="ExcluirUsuario"/>
-                        <input type="hidden" name="id" value="${usuario.id}"/>
-                        <td><button class="btn btn-danger col-md-5" type="submit" value="Excluir"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        <input type="hidden" name="comando" value="ExcluirFeriado"/>
+                        <input type="hidden" name="id" value="${feriado.id}"/>
+                        <td><button class="btn btn-danger col-sd-6" type="submit" value="Excluir"><span class="glyphicon glyphicon-trash"></span></button></td>
                     </form>
-                    </tr>-->
-                <%--</c:forEach>--%>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
             <!--<a href="inicial.jsp">Voltar</a>-->
@@ -70,43 +66,26 @@
                         <h4><span class="glyphicon glyphicon-lock"></span>Cadastrar Feriado</h4>
                     </div>
                     <span id="msgAlerta" class="col-md-12 text-center alert">
-                        
+
                     </span>
                     <div class="modal-body corpo">
-                        
+
                         <form>
-                            <!--<input type="hidden" name="comando" value="AdicionarUsuario"/>-->
-<!--                            <div class="form-group">
-                                <label for="nome">Nome/Login:</label>
-                                <input id="nome" class="form-control" type="text" name="nome"/>
-                            </div>
+                            <input type="hidden" name="comando" value="AdicionarFeriado"/>
                             <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input id="email" class="form-control" type="email" name="email"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="senha">Senha:</label>
-                                <input id="senha" class="form-control" type="password" name="senha"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="matricula">Matricula:</label>
-                                <input id="matricula" class="form-control" type="number" min="100000" max="999999" name="matricula"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="papel">Papel:</label>
-                                <select name="papel" id="papel" class="form-control">
-                                    <option>Professor</option>
-                                    <option>Administrador</option>
-                                    <option>Assistente</option>
-                                </select>
-                            </div>
-                            <button type="button" id="btnCadastrar" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>-->
+                                <label for="nome">Nome:</label>
+                                <input id="nome" class="form-control" type="text" name="nomeFeriado" required="required"/>
+                                <div class="form-group">
+                                    <label for="data">Data</label>
+                                    <input id="data" class="form-control" type="date" name="data" required="required"/>
+                                </div>
+                                <button type="submit" id="btnCadastrarFeriado" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-                
+
         <!-- Modal de importar csv feriados -->
         <div class="modal fade" role="dialog" id="modalImportarFeriados" >
             <div class="modal-dialog">
@@ -116,7 +95,7 @@
                         <h4><span class="glyphicon glyphicon-lock"></span>Importar Feriados</h4>
                     </div>
                     <span id="msgAlerta" class="col-md-12 text-center alert">
-                        
+
                     </span>
                     <div class="modal-body corpo">                    
                         <form enctype="multipart/form-data" action="frontController" method="post">
@@ -124,15 +103,15 @@
                                 <input type="hidden" name="comando" value="ImportarFeriados" />
                                 <input type="file" name="csv" class="form-control" />
                             </div>
-                            
+
                             <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Importar CSV</button>
-                         
+
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Importando o jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- Importando o js do bootstrap -->
@@ -142,7 +121,7 @@
                 $("#modalCadastrarFeriado").modal();
                 console.log("clicado cadastrar feriado");
             });
-            
+
             $("#importarFeriados").click(function () {
                 $("#modalImportarFeriados").modal();
                 console.log("clicado importar feriados");

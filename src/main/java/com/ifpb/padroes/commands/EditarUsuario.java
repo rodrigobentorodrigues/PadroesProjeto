@@ -20,7 +20,7 @@ public class EditarUsuario implements Command {
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         int id = Integer.parseInt(requisicao.getParameter("id"));
-        Usuario usuario = (Usuario) dao.buscaPorId(id);
+        Usuario usuario = dao.buscaPorId(id);
         requisicao.setAttribute("usuarioEdit", usuario);
         RequestDispatcher despachante = requisicao.getRequestDispatcher("editarUsuario.jsp");
         try {

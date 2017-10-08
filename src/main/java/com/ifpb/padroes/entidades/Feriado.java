@@ -52,11 +52,11 @@ public class Feriado implements Serializable {
         this.nome = nome;
     }
 
-    public LocalDate getData() {
+    public LocalDate getDataFeriado() {
         return dataFeriado;
     }
 
-    public void setData(LocalDate data) {
+    public void setDataFeriado(LocalDate data) {
         this.dataFeriado = data;
     }
 
