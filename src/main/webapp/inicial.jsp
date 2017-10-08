@@ -7,6 +7,7 @@
         <title>Pagina Inicial</title>
     </head>
     <body>
+        <a href="frontController?comando=Logout">Sair</a>
         <h2>Pagina Inicial</h2>
         <br>
         <!--Utilizar form posteriormente-->
