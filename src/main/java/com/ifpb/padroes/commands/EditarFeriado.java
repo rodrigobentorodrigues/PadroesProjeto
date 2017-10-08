@@ -25,7 +25,7 @@ public class EditarFeriado implements Command {
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         int id = Integer.parseInt(requisicao.getParameter("id"));
         Feriado feriado = dao.buscaPorId(id);
-        requisicao.setAttribute("feriado", feriado);
+        requisicao.setAttribute("feriadoEdit", feriado);
         RequestDispatcher despachante = requisicao.getRequestDispatcher("editarFeriado.jsp");
         try {
             despachante.forward(requisicao, resposta);
