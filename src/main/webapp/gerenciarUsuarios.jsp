@@ -21,9 +21,7 @@
                     <tr>
                         <th colspan="4">
                             <div class="btn-group col-md-1">
-                                <!--<a href="cadastro.html">-->
                                 <button type="button" class="btn btn-primary" title="Adicionar Usuario" id="cadastrarUsuario"><span class="glyphicon glyphicon-plus"></span></button>
-                                <!--</a>-->
                             </div>
                             <div class="input-group col-md-10">
                                 <form class="form-inline" action="frontController" method="POST">
@@ -31,9 +29,7 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Buscar usuario..." name="pesquisa">
                                     </div>
-
-                                    <button type="submit" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                    
+                                    <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                                 </form>
                             </div>
                         </th>
