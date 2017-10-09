@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="container">
-            <h2>Gerenciar Blocos!</h1>
+            <h2>Gerenciar Blocos</h1>
                 <table class="table table-hover">
                     <thead>
                         <tr>

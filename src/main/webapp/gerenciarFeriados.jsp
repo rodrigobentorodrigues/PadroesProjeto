@@ -58,6 +58,7 @@
             </table>
             <!--<a href="inicial.jsp">Voltar</a>-->
         </div>
+        
         <div class="modal fade" role="dialog" id="modalCadastrarFeriado" >
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -65,28 +66,26 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4><span class="glyphicon glyphicon-lock"></span>Cadastrar Feriado</h4>
                     </div>
-                    <span id="msgAlerta" class="col-md-12 text-center alert">
 
-                    </span>
                     <div class="modal-body corpo">
-
-                        <form>
+                        <form method="post" action="frontController">
                             <input type="hidden" name="comando" value="AdicionarFeriado"/>
                             <div class="form-group">
                                 <label for="nome">Nome:</label>
-                                <input id="nome" class="form-control" type="text" name="nomeFeriado" required="required"/>
-                                <div class="form-group">
-                                    <label for="data">Data</label>
-                                    <input id="data" class="form-control" type="date" name="data" required="required"/>
-                                </div>
-                                <button type="submit" id="btnCadastrarFeriado" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
-                        </form>
+                                    <input id="nome" class="form-control" type="text" name="nomeFeriado" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="data">Data</label>
+                                <input id="data" class="form-control" type="date" name="data" required="required"/>
+                            </div>
+                            <button type="submit" id="btnCadastrarFeriado" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                        </form>  
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal de importar csv feriados -->
+        <!--Modal de importar csv feriados--> 
         <div class="modal fade" role="dialog" id="modalImportarFeriados" >
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -94,7 +93,6 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4><span class="glyphicon glyphicon-lock"></span>Importar Feriados</h4>
                     </div>
-                    <span id="msgAlerta" class="col-md-12 text-center alert">
 
                     </span>
                     <div class="modal-body corpo">                    

@@ -26,7 +26,7 @@
     </head>
     <body>
         <div class="container">
-            <h2>!include</h2>        
+            <h2>Gerenciar Materiais</h2>        
             <table class="table table-hover">
               <thead>
                 <tr>
