@@ -68,18 +68,18 @@
                     </div>
 
                     <div class="modal-body corpo">
-                            <form>
-                                <input type="hidden" name="comando" value="AdicionarFeriado"/>
-                                <div class="form-group">
-                                    <label for="nome">Nome:</label>
+                        <form method="post" action="frontController">
+                            <input type="hidden" name="comando" value="AdicionarFeriado"/>
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
                                     <input id="nome" class="form-control" type="text" name="nomeFeriado" required="required"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="data">Data</label>
-                                    <input id="data" class="form-control" type="date" name="data" required="required"/>
-                                </div>
-                                <button type="submit" id="btnCadastrarFeriado" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
-                            </form>  
+                            </div>
+                            <div class="form-group">
+                                <label for="data">Data</label>
+                                <input id="data" class="form-control" type="date" name="data" required="required"/>
+                            </div>
+                            <button type="submit" id="btnCadastrarFeriado" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                        </form>  
                     </div>
                 </div>
             </div>

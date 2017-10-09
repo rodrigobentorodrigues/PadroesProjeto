@@ -11,17 +11,15 @@ import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 @Stateless
 @Local(SalaDao.class)
-public class GerenciadorSala implements SalaDao{
+public class GerenciadorSala implements SalaDao {
     
+    @PersistenceContext(unitName = "UPersistence")
     private EntityManager em;
-    
-    public GerenciadorSala(){
-        this.em = Persistence.createEntityManagerFactory("UPersistence").createEntityManager();
-    }
     
     @Override
     public void adicionar(Sala sala) {
@@ -45,7 +43,7 @@ public class GerenciadorSala implements SalaDao{
 
     @Override
     public List<Sala> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.createNamedQuery("SELECT s FROM Sala s", Sala.class).getResultList();
     }
     
 }
