@@ -70,7 +70,7 @@
                         <input type="hidden" name="comando" value="EditarMaterial">
                         <input type="hidden" name="tombamento" value="${material.tombamento}">
                         <td><button type="submit" class="btn btn-success" title="Editar Material"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                      </form>>
+                      </form>
                       <td>
                           <form action="frontController" method="post">
                               <input type="hidden" name="comando" value="ExcluirMaterial">
