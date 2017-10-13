@@ -6,7 +6,6 @@
 package com.ifpb.padroes.commands;
 
 import com.ifpb.padroes.entidades.Material;
-import com.ifpb.padroes.entidades.Usuario;
 import com.ifpb.padroes.interfaces.Command;
 
 import java.io.IOException;

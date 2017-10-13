@@ -63,8 +63,8 @@
                     <tr>
                       <td>${material.nome}</td>
                       <td>${material.tombamento}</td>
-                      <td>${material.estado}</td>
-                      <td>${material.localAtual}</td>
+                      <td>#status</td>
+                      <td>#local</td>
                       <td><button type="button" class="btn btn-primary" title="Devolver Material"><span class="glyphicon glyphicon-download"></span></button></td>
                       <td><button type="button" class="btn btn-success" title="Editar Material"><span class="glyphicon glyphicon-pencil"></span></button></td>
                       <td>

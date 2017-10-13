@@ -31,13 +31,12 @@ public class AdicionarMaterial implements Command{
         
         dao.adicionar(material, quantidade);
         
-        PrintWriter out;
+        String url = resposta.encodeURL("frontController?comando=GerenciarMaterial");
         try {
-            out = resposta.getWriter();
-            out.println(quantidade);
+            resposta.sendRedirect(url);
         } catch (IOException ex) {
-            Logger.getLogger(AdicionarMaterial.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            ex.printStackTrace();
+        }
     }
     
 }
