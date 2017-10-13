@@ -25,7 +25,7 @@ public class EditarMaterial implements Command {
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
-        int id = Integer.parseInt(requisicao.getParameter("id"));
+        int id = Integer.parseInt(requisicao.getParameter("tombamento"));
         Material material = dao.buscaPorId(id);
         requisicao.setAttribute("Material", material);
         RequestDispatcher despachante = requisicao.getRequestDispatcher("editarMaterial.jsp");

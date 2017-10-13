@@ -17,10 +17,10 @@
             <hr>
             <form action="frontController" method="POST">
                 <input type="hidden" name="comando" value="AtualizarMaterial"/>
-                <input type="hidden" name="id" value="${material.id}"/>
+                <input type="hidden" name="tombamento" value="${Material.tombamento}"/>
                 <div class="form-group">
                     <label class="form-control-label" for="nome">Nome:</label>
-                    <input name="nome" type="text" class="form-control" id="nome" value="${material.nome}"/>
+                    <input name="nome" type="text" class="form-control" id="nome" value="${Material.nome}"/>
                 </div>
                 <div class="col-md-offset-11">
                     <button type="submit" class="btn btn-success">Atualizar</button>
