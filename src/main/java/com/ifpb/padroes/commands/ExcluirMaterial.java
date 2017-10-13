@@ -8,6 +8,7 @@ package com.ifpb.padroes.commands;
 import com.ifpb.padroes.daos.GerenciadorMaterial;
 import com.ifpb.padroes.interfaces.Command;
 import com.ifpb.padroes.interfaces.MaterialDao;
+import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +26,13 @@ public class ExcluirMaterial implements Command{
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         int tombamento = Integer.parseInt(requisicao.getParameter("tombamento"));
         
-        dao.remover(tombamento);  
+        dao.remover(tombamento); 
+        String url = resposta.encodeURL("frontController?comando=GerenciarMaterial");
+        try {
+            resposta.sendRedirect(url);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         
     }
     

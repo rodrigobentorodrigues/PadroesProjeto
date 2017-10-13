@@ -32,7 +32,8 @@ public class GerenciadorMaterial implements MaterialDao{
     @Override
     public void remover(int tombamento) {
         Material material = em.find(Material.class, tombamento);
-        em.remove(material);
+        if(material != null)
+            em.remove(material);
     }
 
     @Override
