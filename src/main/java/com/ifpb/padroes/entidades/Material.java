@@ -10,24 +10,28 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Material extends MaterialPrototype implements Serializable {
+public class Material implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int tombamento;
+    private String nome;
     
     public Material() {
-        super();
+        
     }
 
     public Material(String nome) {
-        super(nome);
+        this.nome = nome;
     }
 
-    @Override
-    public Material clonar(MaterialPrototype prototipo) {
-        return new Material(prototipo.getNome());
+    public String getNome() {
+        return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
     public int getTombamento() {
         return tombamento;
     }

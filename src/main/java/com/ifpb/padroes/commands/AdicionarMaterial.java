@@ -6,7 +6,6 @@
 package com.ifpb.padroes.commands;
 
 import com.ifpb.padroes.entidades.Material;
-import com.ifpb.padroes.entidades.MaterialPrototype;
 import com.ifpb.padroes.interfaces.Command;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,9 +27,9 @@ public class AdicionarMaterial implements Command{
         String descricao = requisicao.getParameter("descricao");
         int quantidade = Integer.parseInt(requisicao.getParameter("quantidade"));
    
-        MaterialPrototype materialPrototype = new Material(descricao);
+        Material material = new Material(descricao);
         
-        dao.adicionar(materialPrototype, quantidade);
+        dao.adicionar(material, quantidade);
         
         PrintWriter out;
         try {
