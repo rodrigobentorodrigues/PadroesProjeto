@@ -4,6 +4,8 @@ package com.ifpb.padroes.entidades;
 import com.ifpb.padroes.enums.TipoSala;
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,6 +22,7 @@ public class Sala implements Serializable {
     @JoinColumn(name = "bloco_id")
     private Bloco bloco;
     private int capacidade;
+    @Enumerated(EnumType.STRING)
     private TipoSala tipo;
 
     public Sala() {

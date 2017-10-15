@@ -5,11 +5,11 @@
  */
 package com.ifpb.padroes.commands;
 
+import com.ifpb.padroes.interfaces.BlocoDao;
 import com.ifpb.padroes.interfaces.Command;
 import com.ifpb.padroes.interfaces.SalaDao;
 import java.io.IOException;
 import javax.ejb.EJB;
-import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,14 +22,16 @@ import javax.servlet.http.HttpServletResponse;
 public class GerenciarSalas implements Command {
 //
     @EJB
-    private SalaDao dao;
+    private SalaDao salaDao;
+    @EJB
+    private BlocoDao blocoDao;
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
         try {
-            System.out.println(dao.toString());            
-            
-            requisicao.setAttribute("salas", dao.listarTodos());
+                       
+            requisicao.setAttribute("salas", salaDao.listarTodos());
+            requisicao.setAttribute("blocos", blocoDao.listarTodos());
             
             RequestDispatcher despachante = requisicao.getRequestDispatcher("gerenciarSalas.jsp");
             despachante.forward(requisicao, resposta);

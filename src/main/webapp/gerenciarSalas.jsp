@@ -61,7 +61,7 @@
                       <td>${sala.nome}</td>
                       <td>${sala.bloco.nome}</td>
                       <td>${sala.capacidade}</td>
-                      <td>${sala.status}</td>
+                      <td>#status</td>
                       <td><button type="button" class="btn btn-success" title="Editar Material"><span class="glyphicon glyphicon-pencil"></span></button></td>
                       <td>
                           <form action="frontController" method="post">
@@ -97,7 +97,12 @@
                       
                       <div class="form-group">
                         <label for="bloco"><span class="glyphicon glyphicon-eye-open"></span>Bloco</label>
-                        <input type="number" class="form-control" name="idBloco" id="idBloco">
+                        <select class="form-control" name="idBloco" id="idBloco" required> 
+                            <option value=""></option>
+                            <c:forEach var="bloco" items="${blocos}">
+                                <option value="${bloco.id}">${bloco.nome}</option>
+                            </c:forEach>
+                        </select>
                       </div>
                       
                       <div class="form-group">
@@ -107,7 +112,7 @@
                       
                       <div class="form-group">
                         <label for="sel1">Tipo:</label>
-                        <select class="form-control" name="tipo" id="tipo">
+                        <select class="form-control" name="tipo" id="tipo">                         
                           <option value="Comum">Comum</option>
                           <option value="Laboratorio">Laboratorio</option>
                           <option value="Oficina">Oficina</option>
