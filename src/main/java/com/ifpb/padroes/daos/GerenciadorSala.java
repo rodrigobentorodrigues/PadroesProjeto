@@ -27,7 +27,9 @@ public class GerenciadorSala implements SalaDao {
 
     @Override
     public void remover(int idSala) {
-        
+        Sala sala = buscaPorId(idSala);
+        if(sala != null)
+           em.remove(sala);
     }
 
     @Override
@@ -37,7 +39,7 @@ public class GerenciadorSala implements SalaDao {
 
     @Override
     public Sala buscaPorId(int idSala) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.find(Sala.class, idSala);
     }
 
     @Override
