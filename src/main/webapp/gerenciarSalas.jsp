@@ -50,6 +50,7 @@
                   <th>Sala</th>
                   <th>Bloco</th>
                   <th>Capacidade</th>
+                  <th>Tipo</th>
                   <th>Status</th>
                   <th>Editar</th>
                   <th>Excluir</th>
@@ -61,8 +62,14 @@
                       <td>${sala.nome}</td>
                       <td>${sala.bloco.nome}</td>
                       <td>${sala.capacidade}</td>
+                      <td>${sala.tipo}</td>
                       <td>#status</td>
-                      <td><button type="button" class="btn btn-success" title="Editar Material"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                      <td>
+                          <form action="frontController" method="post">
+                              <input type="hidden" name="comando" value="EditarSala">
+                              <input type="hidden" name="idSala" value="${sala.id}">
+                              <button type="submit" class="btn btn-success" title="Editar Sala"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                          </form>
                       <td>
                           <form action="frontController" method="post">
                               <input type="hidden" name="comando" value="ExcluirSala">

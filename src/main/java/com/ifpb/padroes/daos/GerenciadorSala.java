@@ -34,7 +34,7 @@ public class GerenciadorSala implements SalaDao {
 
     @Override
     public void atualizar(Sala sala) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em.merge(sala);
     }
 
     @Override

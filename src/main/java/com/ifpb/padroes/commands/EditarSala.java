@@ -1,8 +1,11 @@
 package com.ifpb.padroes.commands;
 
 import com.ifpb.padroes.entidades.Material;
+import com.ifpb.padroes.entidades.Sala;
+import com.ifpb.padroes.interfaces.BlocoDao;
 import com.ifpb.padroes.interfaces.Command;
 import com.ifpb.padroes.interfaces.MaterialDao;
+import com.ifpb.padroes.interfaces.SalaDao;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,21 +19,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author rodrigobento
  */
-public class EditarMaterial implements Command {
+public class EditarSala implements Command {
 
     @EJB
-    private MaterialDao dao;
+    private SalaDao salaDao;
+    @EJB
+    private BlocoDao blocoDao;
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
-        int id = Integer.parseInt(requisicao.getParameter("tombamento"));
-        Material material = dao.buscaPorId(id);
-        requisicao.setAttribute("Material", material);
-        RequestDispatcher despachante = requisicao.getRequestDispatcher("editarMaterial.jsp");
+        int idSala = Integer.parseInt(requisicao.getParameter("idSala"));
+        Sala sala = salaDao.buscaPorId(idSala);
+        requisicao.setAttribute("Sala", sala);
+        requisicao.setAttribute("Blocos", blocoDao.listarTodos());
+        RequestDispatcher despachante = requisicao.getRequestDispatcher("editarSala.jsp");
         try {
             despachante.forward(requisicao, resposta);
         } catch (ServletException | IOException ex) {
-            Logger.getLogger(EditarMaterial.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarSala.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
