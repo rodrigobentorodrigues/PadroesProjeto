@@ -26,8 +26,8 @@
                     <label for="bloco"><span class="glyphicon glyphicon-eye-open"></span>Bloco</label>
                     <select class="form-control" name="idBloco" id="idBloco" required> 
                         <option value="${Sala.bloco.id}">${Sala.bloco.nome}</option>
-                        <c:forEach var="bloco" items="${Blocos}">
-                            <option value="${bloco.id}">${bloco.nome}</option>
+                        <c:forEach var="bloco" items="${requestScope.blocos}">
+                                <option value="${bloco.id}">${bloco.nome}</option>
                         </c:forEach>
                     </select>
                 </div>
