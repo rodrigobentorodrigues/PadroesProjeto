@@ -11,13 +11,16 @@ import javax.persistence.Id;
 
 @Entity
 public class Material implements Serializable {
+    private static Material material;
+    private static String nomeMaterial;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int tombamento;
     private String nome;
     
+    
     public Material() {
-        
+        this.nome = nomeMaterial;
     }
 
     public Material(String nome) {
@@ -31,6 +34,16 @@ public class Material implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public static String getNomeMaterial() {
+        return nomeMaterial;
+    }
+
+    public static void setNomeMaterial(String nomeMaterial) {
+        Material.nomeMaterial = nomeMaterial;
+    }
+    
+    
     
     public int getTombamento() {
         return tombamento;
@@ -38,6 +51,10 @@ public class Material implements Serializable {
 
     public void setTombamento(int tombamento) {
         this.tombamento = tombamento;
+    }
+    
+    public static Material clonar(Material material){
+        return material;
     }
 
 }

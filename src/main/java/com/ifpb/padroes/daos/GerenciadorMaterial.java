@@ -24,7 +24,7 @@ public class GerenciadorMaterial implements MaterialDao{
     @Override
     public void adicionar(Material material, int quantidade) {
         for(int k=1; k<=quantidade; k++){
-            Material novo = new Material(material.getNome());
+            Material novo = material;
             em.persist(novo);
         }
     }
