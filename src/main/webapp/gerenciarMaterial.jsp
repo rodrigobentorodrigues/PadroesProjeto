@@ -100,7 +100,7 @@
                       <input type="hidden" name="comando" value="AdicionarMaterial"/>
                       <div class="form-group">
                         <label for="descricao"><span class="glyphicon glyphicon-user"></span>Descriçao</label>
-                        <input type="text" class="form-control"  maxlength="50" name="descricao" id="descricao" placeholder="Descrição">
+                        <input type="text" class="form-control"  maxlength="50" name="descricao" id="descricao" placeholder="Descrição" required>
                       </div>
                       <div class="form-group">
                         <label for="quantidade"><span class="glyphicon glyphicon-eye-open"></span>Quantidade</label>
