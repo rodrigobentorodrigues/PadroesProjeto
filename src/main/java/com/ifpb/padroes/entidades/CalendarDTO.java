@@ -21,6 +21,13 @@ public class CalendarDTO {
     public String start;
     
     public String color;   
+
+    public CalendarDTO(int id, String title, String start) {
+        this.id = id;
+        this.title = title;
+        this.start = start;
+    }
+    
     
     public String getColor() {
         return color;
