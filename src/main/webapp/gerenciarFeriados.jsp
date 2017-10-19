@@ -104,18 +104,19 @@
         </div>
 
         <!-- Importando o jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- Importando o js do bootstrap -->
-        <script src="libs/bootstrap/bootstrap.min.js"></script>
+        <!--<script src="libs/bootstrap/bootstrap.min.js"></script>-->
         <script>
         $(document).ready(function() {
             $('#calendar').fullCalendar({
                 theme: true,
                 editable: false,
-                events: "CalendarJsonServlet"
+                events: "frontController?comando=ListarFeriados"
             });
         });
         </script>
+        
         <script>
             $("#cadastrarFeriado").click(function () {
                 $("#modalCadastrarFeriado").modal();

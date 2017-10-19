@@ -5,6 +5,12 @@
  */
 package com.ifpb.padroes.entidades;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 /**
  *
  * @author rudan
@@ -13,8 +19,9 @@ public class CalendarDTO {
     public int id;
     public String title;
     public String start;
-    public String end;
-    public String color;
+    
+    public String color;   
+    
     public String getColor() {
         return color;
     }
@@ -38,12 +45,6 @@ public class CalendarDTO {
     }
     public void setStart(String start) {
         this.start = start;
-    }
-    public String getEnd() {
-        return end;
-    }
-    public void setEnd(String end) {
-        this.end = end;
     }
  
 }
