@@ -14,41 +14,41 @@
     <body>
         <div class="container">
             <h2>Atualizar dados de feriado</h2>
-            
+
             <table class="table table-hover">
                 <thead>
-                  <tr>
-                    <th>Data</th>
-                    <th>Descricao</th>
-                    <th>Editar</th>
-                    <th>Excluir</th>
-                  </tr>
+                    <tr>
+                        <th>Data</th>
+                        <th>Descricao</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                      <form action="frontController" method="POST">
-                        <input type="hidden" name="comando" value="AtualizarFeriado"/>
-                        <input type="hidden" name="id" value="${feriadoEdit.id}"/>
-                        
-                        <td><div class="form-group">                            
+                    <tr>
+                <form action="frontController" method="POST">
+                    <input type="hidden" name="comando" value="AtualizarFeriado"/>
+                    <input type="hidden" name="id" value="${feriadoEdit.id}"/>
+
+                    <td><div class="form-group">                            
                             <input name="nome" type="text" class="form-control" id="nome" value="${feriadoEdit.nome}"/>
                         </div></td>
-                        <td><div class="form-group">              
+                    <td><div class="form-group">              
                             <input name="data" type="date" class="form-control" id="data" value="${feriadoEdit.dataFeriado}"/>
                         </div></td>
-                        <td><button type="submit" class="btn btn-success" title="Atualizar Feriado"><span class="glyphicon glyphicon-save"></span></button></td>
-                      </form>
-                        <td>
-                            <form action="frontController" method="post">
-                                <input type="hidden" name="comando" value="ExcluirFeriado">
-                                <input type="hidden" name="id" value="${feriadoEdit.id}">
-                                <button type="submit" class="btn btn-danger" title="Excluir Feriado"><span class="glyphicon glyphicon-trash"></span></button>
-                            </form>
-                        </td>
-                  </tr> 
+                    <td><button type="submit" class="btn btn-success" title="Atualizar Feriado"><span class="glyphicon glyphicon-save"></span></button></td>
+                </form>
+                <td>
+                    <form action="frontController" method="post">
+                        <input type="hidden" name="comando" value="ExcluirFeriado">
+                        <input type="hidden" name="id" value="${feriadoEdit.id}">
+                        <button type="submit" class="btn btn-danger" title="Excluir Feriado"><span class="glyphicon glyphicon-trash"></span></button>
+                    </form>
+                </td>
+                </tr> 
                 </tbody>
-              </table>
-            
+            </table>
+            <a href="inicial.jsp"><button class="btn btn-primary" title="Voltar">Voltar</button></a>
         </div>
 
     </body>

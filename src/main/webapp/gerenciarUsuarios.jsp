@@ -64,6 +64,7 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <a href="inicial.jsp"><button class="btn btn-primary" title="Voltar">Voltar</button></a>
         </div>
         <div class="modal fade" role="dialog" id="modalCadastrarUsuario" >
             <div class="modal-dialog">

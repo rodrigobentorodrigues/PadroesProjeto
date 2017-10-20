@@ -82,8 +82,8 @@
                   </c:forEach>
               </tbody>
             </table>
-          </div>
-        
+            <a href="inicial.jsp"><button class="btn btn-primary" title="Voltar">Voltar</button></a>            
+          </div>        
         <!-- Modal -->
         <div class="modal fade" id="modalCadastrarSala" role="dialog">
           <div class="modal-dialog">
@@ -114,7 +114,7 @@
                       
                       <div class="form-group">
                         <label for="capacidade"><span class="glyphicon glyphicon-eye-open"></span>Capacidade</label>
-                        <input type="number" class="form-control" name="capacidade" id="capacidade">
+                        <input type="number" class="form-control" name="capacidade" id="capacidade" min="1">
                       </div>
                       
                       <div class="form-group">

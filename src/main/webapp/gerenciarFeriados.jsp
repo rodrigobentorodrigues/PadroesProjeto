@@ -10,8 +10,7 @@
         <!-- Bootstrap CSS -->
         <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
         <!-- CSS -->
-        <link href="css/style.css" rel="stylesheet">
-        
+        <link href="css/style.css" rel="stylesheet">        
         <!-- Calendario -->
         <link rel='stylesheet' href='fullcalendar-3.6.1/fullcalendar.css' />
         <script src='js/jquery.min.js'></script>

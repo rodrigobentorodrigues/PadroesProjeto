@@ -27,7 +27,7 @@
                     <select class="form-control" name="idBloco" id="idBloco" required> 
                         <option value="${Sala.bloco.id}">${Sala.bloco.nome}</option>
                         <c:forEach var="bloco" items="${requestScope.blocos}">
-                                <option value="${bloco.id}">${bloco.nome}</option>
+                            <option value="${bloco.id}">${bloco.nome}</option>
                         </c:forEach>
                     </select>
                 </div>
@@ -36,19 +36,20 @@
                     <input name="capacidade" type="Number" class="form-control" id="capacidade" value="${Sala.capacidade}"/>
                 </div>
                 <div class="form-group">
-                        <label for="sel1">Tipo:</label>
-                        <select class="form-control" name="tipo" id="tipo">
-                          <option value="${Sala.tipo}">${Sala.tipo}</option>
-                          <option value="Comum">Comum</option>
-                          <option value="Laboratorio">Laboratorio</option>
-                          <option value="Oficina">Oficina</option>
-                          <option value="Inteligente">Inteligente</option>
-                        </select>
-                      </div>
+                    <label for="sel1">Tipo:</label>
+                    <select class="form-control" name="tipo" id="tipo">
+                        <option value="${Sala.tipo}">${Sala.tipo}</option>
+                        <option value="Comum">Comum</option>
+                        <option value="Laboratorio">Laboratorio</option>
+                        <option value="Oficina">Oficina</option>
+                        <option value="Inteligente">Inteligente</option>
+                    </select>
+                </div>
                 <div class="col-md-offset-11">
                     <button type="submit" class="btn btn-success">Atualizar</button>
                 </div>
-            </form>  
+            </form>
+            <a href="inicial.jsp"><button class="btn btn-primary" title="Voltar">Voltar</button></a>
         </div>
 
     </body>
