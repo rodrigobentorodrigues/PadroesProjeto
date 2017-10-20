@@ -66,11 +66,13 @@
                       <td>#status</td>
                       <td>#local</td>
                       <td><button type="button" class="btn btn-primary" title="Devolver Material"><span class="glyphicon glyphicon-download"></span></button></td>
-                      <form action="frontController" method="post">                       
-                        <input type="hidden" name="comando" value="EditarMaterial">
-                        <input type="hidden" name="tombamento" value="${material.tombamento}">
-                        <td><button type="submit" class="btn btn-success" title="Editar Material"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                      </form>
+                      <td>
+                        <form action="frontController" method="post">                       
+                            <input type="hidden" name="comando" value="EditarMaterial">
+                            <input type="hidden" name="tombamento" value="${material.tombamento}">
+                            <button type="submit" class="btn btn-success" title="Editar Material"><span class="glyphicon glyphicon-pencil"></span></button>
+                        </form>
+                      </td>
                       <td>
                           <form action="frontController" method="post">
                               <input type="hidden" name="comando" value="ExcluirMaterial">
