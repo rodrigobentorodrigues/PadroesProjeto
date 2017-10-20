@@ -34,6 +34,7 @@
                       <li><a href="frontController?comando=GerenciarMaterial">Gerenciar Materiais</a></li>
                       <li><a href="frontController?comando=GerenciarBlocos">Gerenciar Blocos</a></li>
                       <li><a href="frontController?comando=GerenciarSalas">Gerenciar Salas</a></li>
+                      <li><a href="frontController?comando=GerenciarAlocacao">Gerenciar Alocações</a></li>
                     </ul>
                 </li>
               </ul>
