@@ -10,6 +10,7 @@ public interface UsuarioDao{
     void remover(Usuario usuario);
     void atualizar(Usuario usuario);
     Usuario buscaPorId(int id);
+    Usuario buscarPorNome(String nomeUsuario);
     List<Usuario> listarTodos();
     Usuario autentica(String login, String senha);
 }
