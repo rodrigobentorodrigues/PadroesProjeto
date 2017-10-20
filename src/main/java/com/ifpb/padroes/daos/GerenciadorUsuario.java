@@ -45,6 +45,13 @@ public class GerenciadorUsuario implements UsuarioDao {
     public Usuario buscaPorId(int id) {
         return em.find(Usuario.class, id);
     }
+    
+    @Override
+    public Usuario buscarPorNome(String nomeUsuario){
+        TypedQuery<Usuario> createQuery = em.createQuery("select u from Usuario u where u.nome like :nomeUsuario", Usuario.class);
+        createQuery.setParameter("nomeUsuario", nomeUsuario);
+        return createQuery.getSingleResult();
+    }
 
     @Override
     public Usuario autentica(String login, String senha) {
