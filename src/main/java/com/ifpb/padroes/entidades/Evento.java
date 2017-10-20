@@ -1,4 +1,3 @@
-
 package com.ifpb.padroes.entidades;
 
 import com.ifpb.padroes.conversores.ConversorData;
@@ -10,8 +9,9 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -25,7 +25,8 @@ public class Evento implements Serializable {
     private String descricao;
     private int numeroParticipantes;
     
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
     private Usuario responsavel;
     
     @Temporal(TemporalType.DATE)
