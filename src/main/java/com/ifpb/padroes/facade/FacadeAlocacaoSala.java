@@ -9,6 +9,7 @@ import com.ifpb.padroes.entidades.AlocacaoDTO;
 import com.ifpb.padroes.entidades.Evento;
 import com.ifpb.padroes.entidades.Material;
 import com.ifpb.padroes.entidades.Sala;
+import com.ifpb.padroes.entidades.Usuario;
 import java.util.List;
 
 /**
@@ -17,10 +18,22 @@ import java.util.List;
  */
 public interface FacadeAlocacaoSala {
     List<AlocacaoDTO> listarAlocacoes();
-    boolean cadastrarEvento(Evento evento);
-    // Para o evento
-    List<Sala> listarSalasDisponiveis(Evento evento);
-    List<Evento> listarEventosDisponiveis();
-    // Para aquele evento
-    List<Material> listarMateriaisDisponiveis(Evento evento);
+    
+    List<Usuario> listarUsuarios();
+    void cadastrarEvento(Evento evento, String nomeUsuario);
+    
+    // Listar os eventos disponiveis para serem listados quado for alocar sala
+    List<Evento> listarEventos();
+    
+    // Listar as salas que não estão alocadas
+    List<Sala> listarSalasDisponiveis();
+    
+    // Listar todos os materiais que não estão alocados
+    List<Material> listarMateriaisDisponiveis();
+    
+    // Persistir uma sala em um evento
+    void alocarEvento(Evento evento, Sala sala, List<Material> materiais);
+    
+    // Simplismente, desalocar a sala
+    void desalocarSala(Sala sala);
 }
