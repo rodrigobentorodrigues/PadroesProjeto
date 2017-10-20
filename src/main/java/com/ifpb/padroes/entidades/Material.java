@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 
@@ -21,8 +24,12 @@ public class Material implements Serializable {
     private int tombamento;
     private String nome;
     
+    @ManyToOne
+    @JoinColumn(name = "id_alocacao")
+    private Alocacao alocacao;
     
     public Material() {
+        this.alocacao = null;
         this.nome = nomeMaterial;
     }
 
@@ -45,8 +52,6 @@ public class Material implements Serializable {
     public static void setNomeMaterial(String nomeMaterial) {
         Material.nomeMaterial = nomeMaterial;
     }
-    
-    
     
     public int getTombamento() {
         return tombamento;
