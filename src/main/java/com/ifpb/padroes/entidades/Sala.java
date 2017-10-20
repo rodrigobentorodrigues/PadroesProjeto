@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Sala implements Serializable {
@@ -24,8 +25,12 @@ public class Sala implements Serializable {
     private int capacidade;
     @Enumerated(EnumType.STRING)
     private TipoSala tipo;
+    
+    @OneToOne(mappedBy = "sala")
+    private Alocacao alocacao;
 
     public Sala() {
+        
     }
 
     public Sala(String nome, Bloco bloco, int capacidade, TipoSala tipo) {
@@ -33,6 +38,7 @@ public class Sala implements Serializable {
         this.bloco = bloco;
         this.capacidade = capacidade;
         this.tipo = tipo;
+        this.alocacao = null;
     }
 
     public int getId() {
@@ -75,8 +81,18 @@ public class Sala implements Serializable {
         this.tipo = tipo;
     }
 
+    public Alocacao getAlocacao() {
+        return alocacao;
+    }
+
+    public void setAlocacao(Alocacao alocacao) {
+        this.alocacao = alocacao;
+    }
+
     @Override
     public String toString() {
-        return "Sala{" + "id=" + id + ", nome=" + nome + ", bloco=" + bloco + ", capacidade=" + capacidade + ", tipo=" + tipo + '}';
+        return "Sala{" + "id=" + id + ", nome=" + nome + ", bloco=" + bloco + ", capacidade=" + capacidade + ", tipo=" + tipo + ", alocacao=" + alocacao + '}';
     }
+
+    
 }
