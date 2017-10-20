@@ -52,7 +52,9 @@ public class ListarFeriados implements Command{
             LocalDate data = feriado.getDataFeriado();
             String start = formatadorTraco.format(data);
             
-            CalendarDTO calendarDTO = new CalendarDTO(id, nome, start);
+            String link = "frontController?comando=EditarFeriado?id=2";
+            
+            CalendarDTO calendarDTO = new CalendarDTO(id, nome, start, link);
             feriadosCalendar.add(calendarDTO);
         }
              

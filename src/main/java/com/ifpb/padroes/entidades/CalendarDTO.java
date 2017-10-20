@@ -19,13 +19,15 @@ public class CalendarDTO {
     public int id;
     public String title;
     public String start;
+    public String url;
     
     public String color;   
 
-    public CalendarDTO(int id, String title, String start) {
+    public CalendarDTO(int id, String title, String start, String url) {
         this.id = id;
         this.title = title;
         this.start = start;
+        this.url = url;
     }
     
     
@@ -53,5 +55,15 @@ public class CalendarDTO {
     public void setStart(String start) {
         this.start = start;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    
+    
  
 }
