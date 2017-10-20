@@ -48,6 +48,7 @@ public class ListarFeriados implements Command{
             
             int id = feriado.getId();
             String nome = feriado.getNome();
+            //LocalDate start = feriado.getDataFeriado();
             LocalDate data = feriado.getDataFeriado();
             String start = formatadorTraco.format(data);
             
