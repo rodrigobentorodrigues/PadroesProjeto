@@ -1,29 +1,64 @@
 
 package com.ifpb.padroes.entidades;
 
+import com.ifpb.padroes.conversores.ConversorData;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-public class Evento {
+@Entity
+public class Evento implements Serializable {
     
+    @Id
+    @GeneratedValue
+    private int id;
     private String nome;
     private String descricao;
     private int numeroParticipantes;
+    
+    @OneToOne
     private Usuario responsavel;
+    
+    @Temporal(TemporalType.DATE)
+    @Convert(converter = ConversorData.class)
     private LocalDate inicio;
+    @Temporal(TemporalType.DATE)
+    @Convert(converter = ConversorData.class)
     private LocalDate fim;
+    
+    @OneToMany(mappedBy = "evento")
+    private List<Alocacao> alocacoes;
 
     public Evento() {
+        this.alocacoes = new ArrayList<>();
     }
 
-    public Evento(String nome, String descricao, int numeroParticipantes, Usuario responsavel, LocalDate inicio, LocalDate fim) {
+    public Evento(String nome, String descricao, int numeroParticipantes, LocalDate inicio, LocalDate fim) {
+        this();
         this.nome = nome;
         this.descricao = descricao;
         this.numeroParticipantes = numeroParticipantes;
-        this.responsavel = responsavel;
         this.inicio = inicio;
         this.fim = fim;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -72,9 +107,19 @@ public class Evento {
         this.fim = fim;
     }
 
+    public List<Alocacao> getAlocacoes() {
+        return alocacoes;
+    }
+
+    public void setAlocacoes(List<Alocacao> alocacoes) {
+        this.alocacoes = alocacoes;
+    }
+
     @Override
     public String toString() {
-        return "Evento{" + "nome=" + nome + ", descricao=" + descricao + ", numeroParticipantes=" + numeroParticipantes + ", responsavel=" + responsavel + ", inicio=" + inicio + ", fim=" + fim + '}';
-    }  
+        return "Evento{" + "nome=" + nome + ", descricao=" + descricao + ", numeroParticipantes=" + numeroParticipantes + ", responsavel=" + responsavel + ", inicio=" + inicio + ", fim=" + fim + ", alocacoes=" + alocacoes + '}';
+    }
+
+
     
 }
