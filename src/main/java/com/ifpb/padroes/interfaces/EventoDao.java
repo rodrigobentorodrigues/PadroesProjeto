@@ -17,5 +17,6 @@ public interface EventoDao {
     void atualizar(Evento evento);
     void remover(Evento evento);
     Evento listarPorId(int id);
+    Evento listarPorNome(String nomeEvento);
     List<Evento> listarTodos();
 }

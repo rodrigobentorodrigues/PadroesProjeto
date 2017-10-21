@@ -5,6 +5,7 @@
  */
 package com.ifpb.padroes.facade;
 
+import com.ifpb.padroes.entidades.Alocacao;
 import com.ifpb.padroes.entidades.AlocacaoDTO;
 import com.ifpb.padroes.entidades.Evento;
 import com.ifpb.padroes.entidades.Material;
@@ -12,10 +13,11 @@ import com.ifpb.padroes.entidades.Sala;
 import com.ifpb.padroes.entidades.Usuario;
 import com.ifpb.padroes.interfaces.AlocacaoDao;
 import com.ifpb.padroes.interfaces.EventoDao;
+import com.ifpb.padroes.interfaces.MaterialDao;
+import com.ifpb.padroes.interfaces.SalaDao;
 import com.ifpb.padroes.interfaces.UsuarioDao;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -34,10 +36,19 @@ public class FacadeAlocacaoSalaImpl implements FacadeAlocacaoSala {
     private UsuarioDao usuarioDao;
     @Inject
     private EventoDao eventoDao;
+    @Inject
+    private SalaDao salaDao;
+    @Inject
+    private MaterialDao materialDao;
     
     @Override
     public List<AlocacaoDTO> listarAlocacoes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override 
+    public List<Alocacao> listarAlocacoesDisponiveis() {
+        return alocacaoDao.listarTodos();
     }
 
     @Override
@@ -55,22 +66,58 @@ public class FacadeAlocacaoSalaImpl implements FacadeAlocacaoSala {
 
     @Override
     public List<Evento> listarEventos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return eventoDao.listarTodos();
     }
 
     @Override
     public List<Sala> listarSalasDisponiveis() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Sala> salas = salaDao.listarTodos();
+        List<Sala> listaAux = new ArrayList<>();
+        
+        for(Sala sala : salas) {
+            if(sala.getAlocacao() == null) listaAux.add(sala);
+        }
+        
+        return listaAux;
     }
 
+    @Override
+    public void alocarEvento(String nomeEvento, String nomeSala) {
+        Evento evento = eventoDao.listarPorNome(nomeEvento);
+        Sala sala = salaDao.listarPorNome(nomeSala);
+        Alocacao alocacao = new Alocacao();
+        alocacao.setEvento(evento);
+        alocacao.setSala(sala);
+        
+        alocacaoDao.adicionar(alocacao);
+        
+        // Jogadando a alocação no evento
+        evento.addAlocacao(alocacao);
+        eventoDao.atualizar(evento);
+        
+        // Jogando alocação na sala
+        sala.setAlocacao(alocacao);
+        salaDao.atualizar(sala);    
+    }
+    
     @Override
     public List<Material> listarMateriaisDisponiveis() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return materialDao.buscarPorMateriaisNaoAlocados();
     }
-
+    
     @Override
-    public void alocarEvento(Evento evento, Sala sala, List<Material> materiais) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void alocarMaterial(String nomeEvento, String nomeMaterial) {
+        Alocacao alocacao = alocacaoDao.listarPorNomeEvento(nomeEvento);
+          
+        Material material =  materialDao.buscarPorNome(nomeMaterial);
+        
+        // Adicionei o material na lista de materiais em alocacao
+        alocacao.addMaterial(material);
+        alocacaoDao.atualizar(alocacao);
+        
+        // Set de alocação no material para trasmitir que aquele material tá alocado
+        material.setAlocacao(alocacao);
+        materialDao.atualizar(material);
     }
 
     @Override

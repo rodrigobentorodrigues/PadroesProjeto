@@ -32,7 +32,9 @@ public class GerenciadorEvento implements EventoDao {
 
     @Override
     public void atualizar(Evento evento) {
-        em.merge(evento);
+        Evento e = em.find(Evento.class, evento.getId());
+        e.setAlocacoes(evento.getAlocacoes());
+        em.merge(e);
     }
 
     @Override
@@ -44,6 +46,13 @@ public class GerenciadorEvento implements EventoDao {
     @Override
     public Evento listarPorId(int id) {
         return em.find(Evento.class, id);
+    }
+    
+    @Override
+    public Evento listarPorNome(String nomeEvento){
+        TypedQuery<Evento> createQuery = em.createQuery("select e from Evento e where e.nome like :nomeEvento", Evento.class);
+        createQuery.setParameter("nomeEvento", nomeEvento);
+        return createQuery.getSingleResult();
     }
 
     @Override

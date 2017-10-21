@@ -45,6 +45,19 @@ public class GerenciadorMaterial implements MaterialDao{
     public Material buscaPorId(int id) {
         return em.find(Material.class, id);
     }
+    
+    @Override
+    public List<Material> buscarPorMateriaisNaoAlocados() {
+        TypedQuery<Material> createQuery = em.createQuery("select m from Material m where m.alocacao is null", Material.class);
+        return createQuery.getResultList();
+    }
+    
+    @Override
+    public Material buscarPorNome(String nomeMaterial){
+        TypedQuery<Material> createQuery = em.createQuery("select m from Material m where m.nome like :nomeMaterial", Material.class);
+        createQuery.setParameter("nomeMaterial", nomeMaterial);
+        return createQuery.getSingleResult();
+    }
 
     @Override
     public List<Material> listarTodos() {

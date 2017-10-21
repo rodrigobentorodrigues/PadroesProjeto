@@ -45,6 +45,13 @@ public class GerenciadorAlocacao implements AlocacaoDao {
     public Alocacao listarPorId(int id) {
         return em.find(Alocacao.class, id);
     }
+    
+    @Override
+    public Alocacao listarPorNomeEvento(String nomeEvento){
+        TypedQuery<Alocacao> createQuery = em.createQuery("select a from Alocacao a where a.evento.nome like :nomeEvento", Alocacao.class);
+        createQuery.setParameter("nomeEvento", nomeEvento);
+        return createQuery.getSingleResult();
+    }
 
     @Override
     public List<Alocacao> listarTodos() {

@@ -9,6 +9,8 @@ public interface MaterialDao{
     void remover(int tombamento);
     void atualizar(Material material);
     Material buscaPorId(int id);
+    List<Material> buscarPorMateriaisNaoAlocados();
+    Material buscarPorNome(String nomeMaterial);
     List<Material> listarTodos();
     
 }
