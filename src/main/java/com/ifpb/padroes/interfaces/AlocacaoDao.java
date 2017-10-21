@@ -17,5 +17,6 @@ public interface AlocacaoDao {
     void atualizar(Alocacao alocacao);
     void remover(Alocacao alocacao);
     Alocacao listarPorId(int id);
+    Alocacao listarPorNomeEvento(String nomeEvento);
     List<Alocacao> listarTodos();
 }

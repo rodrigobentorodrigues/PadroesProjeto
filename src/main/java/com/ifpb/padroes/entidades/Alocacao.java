@@ -32,7 +32,7 @@ public class Alocacao implements Serializable {
     private Evento evento;
     
     @OneToOne
-    @JoinColumn(name = "id_sala")
+    @JoinColumn(name="id_sala")
     private Sala sala;
     
     @OneToMany(mappedBy = "alocacao")
@@ -42,11 +42,11 @@ public class Alocacao implements Serializable {
         this.materiais = new ArrayList<>();
     }
     
-    public Alocacao(int id, Evento evento, Sala sala) {
+    public Alocacao(int id, Evento evento) {
         this();
         this.id = id;
         this.evento = evento;
-        this.sala = sala;
+        this.sala = null;
     }
 
     public int getId() {
@@ -79,6 +79,14 @@ public class Alocacao implements Serializable {
 
     public void setMateriais(List<Material> materiais) {
         this.materiais = materiais;
+    }
+    
+    public boolean addMaterial(Material a){
+        return this.materiais.add(a);
+    }
+    
+    public boolean removerMaterial(Material a){
+        return this.materiais.remove(a);
     }
 
     @Override

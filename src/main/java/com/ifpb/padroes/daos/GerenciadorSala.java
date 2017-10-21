@@ -12,6 +12,7 @@ import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 @Stateless
 @Local(SalaDao.class)
@@ -34,14 +35,23 @@ public class GerenciadorSala implements SalaDao {
 
     @Override
     public void atualizar(Sala sala) {
-        em.merge(sala);
+        Sala s = em.find(Sala.class, sala.getId());
+        s.setAlocacao(sala.getAlocacao());
+        em.merge(s);
     }
 
     @Override
     public Sala buscaPorId(int idSala) {
         return em.find(Sala.class, idSala);
     }
-
+    
+    @Override
+    public Sala listarPorNome(String nomeSala){
+        TypedQuery<Sala> createQuery = em.createQuery("select s from Sala s where s.nome like :nomeSala", Sala.class);
+        createQuery.setParameter("nomeSala", nomeSala);
+        return createQuery.getSingleResult();
+    }
+    
     @Override
     public List<Sala> listarTodos() {
         return em.createQuery("SELECT s FROM Sala s", Sala.class).getResultList();

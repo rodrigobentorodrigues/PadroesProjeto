@@ -65,4 +65,21 @@ public class Material implements Serializable {
         return material;
     }
 
+    public Alocacao getAlocacao() {
+        return alocacao;
+    }
+
+    public void setAlocacao(Alocacao alocacao) {
+        this.alocacao = alocacao;
+    }
+    
+    
+
+    @Override
+    public String toString() {
+        return "Material{" + "tombamento=" + tombamento + ", nome=" + nome + ", alocacao=" + alocacao + '}';
+    }
+    
+    
+
 }

@@ -115,6 +115,14 @@ public class Evento implements Serializable {
     public void setAlocacoes(List<Alocacao> alocacoes) {
         this.alocacoes = alocacoes;
     }
+    
+    public boolean addAlocacao(Alocacao a) {
+        return this.alocacoes.add(a);
+    }
+    
+    public boolean removeAlocacao(Alocacao a) {
+        return this.alocacoes.remove(a);
+    }
 
     @Override
     public String toString() {

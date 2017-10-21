@@ -70,5 +70,7 @@ public class Bloco implements Serializable{
     public String toString() {
         return "Bloco{" + "id=" + id + ", nome=" + nome + ", salas=" + salas + '}';
     }
+
+    
         
 }

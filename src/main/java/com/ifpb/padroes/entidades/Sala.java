@@ -6,6 +6,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -30,15 +31,15 @@ public class Sala implements Serializable {
     private Alocacao alocacao;
 
     public Sala() {
-        
+        this.alocacao = null;
     }
 
     public Sala(String nome, Bloco bloco, int capacidade, TipoSala tipo) {
+        this();
         this.nome = nome;
         this.bloco = bloco;
         this.capacidade = capacidade;
         this.tipo = tipo;
-        this.alocacao = null;
     }
 
     public int getId() {

@@ -29,6 +29,17 @@ public class GerenciarAlocacao implements Command {
         
         requisicao.getSession().setAttribute("usuarios", facadeAlocacaoSala.listarUsuarios());
         
+        // Carregar eventos 
+        requisicao.getSession().setAttribute("eventos", facadeAlocacaoSala.listarEventos());
+        
+        // Carregar salas
+        requisicao.getSession().setAttribute("salas", facadeAlocacaoSala.listarSalasDisponiveis());
+//        System.out.println(facadeAlocacaoSala.listarSalasDisponiveis());
+        
+        // Carregar materiais 
+        requisicao.getSession().setAttribute("materiais", facadeAlocacaoSala.listarMateriaisDisponiveis());
+//        System.out.println(facadeAlocacaoSala.listarMateriaisDisponiveis());
+        
         String url = resposta.encodeURL("gerenciarAlocacao.jsp");
         try {
             resposta.sendRedirect(url);

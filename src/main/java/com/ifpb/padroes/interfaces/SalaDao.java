@@ -17,5 +17,6 @@ public interface SalaDao {
     void remover(int idSala);
     void atualizar(Sala sala);
     Sala buscaPorId(int idSala);
+    Sala listarPorNome(String nomeSala);
     List<Sala> listarTodos();
 }

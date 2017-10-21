@@ -24,8 +24,11 @@
                                 <button type="button" class="btn btn-primary" title="Cadastrar Evento" id="cadastrarEvento"><span class="glyphicon glyphicon-flag"></span></button>
                             </div>
                             <div class="btn-group col-md-1">
-                                <button type="button" class="btn btn-primary" title="Alocar Evento" id="alocarEvento"><span class="glyphicon glyphicon-plus"></span></button>
+                                <button type="button" class="btn btn-primary" title="Alocar Evento"  id="alocarEvento"><span class="glyphicon glyphicon-plus"></span></button>
                             </div>
+                            <div class="btn-group col-md-1">
+                                <button type="button" class="btn btn-primary" title="Alocar Materiais"  id="alocarMateriais"><span class="glyphicon glyphicon-wrench"></span></button>
+                            </div
                             <div class="input-group col-md-9">
                                 <form class="form-inline" action="frontController" method="POST">
                                     <input type="hidden" name="comando" value="GerenciarAlocacao" />
@@ -114,7 +117,7 @@
                                 <label for="fim">Fim:</label>
                                 <input type="date" name="fim" id="fim" class="form-control" />
                             </div>
-                            <button type="submit" id="btnCadastrar" class="btn btn-info btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                            <button type="submit" id="btnCadastrar" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
                         </form>
                     </div>
                 </div>
@@ -133,38 +136,77 @@
                     </span>
                     <div class="modal-body corpo">
                         
-                        <form>
-                            <!--<input type="hidden" name="comando" value="AdicionarUsuario"/>-->
+                        <form method="post" action="frontController">
+                            <input type="hidden" name="comando" value="AlocarEvento"/>
                             <div class="form-group">
-                                <label for="nome">Nome/Login:</label>
-                                <input id="nome" class="form-control" type="text" name="nome"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input id="email" class="form-control" type="email" name="email"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="senha">Senha:</label>
-                                <input id="senha" class="form-control" type="password" name="senha"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="matricula">Matricula:</label>
-                                <input id="matricula" class="form-control" type="number" min="100000" max="999999" name="matricula"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="papel">Papel:</label>
-                                <select name="papel" id="papel" class="form-control">
-                                    <option>Professor</option>
-                                    <option>Administrador</option>
-                                    <option>Assistente</option>
+                                <label for="evento">Selecione o evento:</label>
+                                <select name="evento" id="evento" class="form-control">
+                                    <c:forEach items="${eventos}" var="evento">
+                                        <option value="${evento.nome}">
+                                            ${evento.nome}
+                                        </option>
+                                    </c:forEach>
                                 </select>
                             </div>
-                            <button type="button" id="btnAlocar" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Alocar</button>
+                            <div class="form-group">
+                                <label for="sala">Selecione a sala:</label>
+                                <select name="sala" id="sala" class="form-control">
+                                    <c:forEach items="${salas}" var="sala">
+                                        <option value="${sala.nome}">
+                                            ${sala.nome}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" id="btnAlocar" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Alocar</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="modal fade" role="dialog" id="modalAlocarMateriais" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header cabecalho" style="background-color: #ff9d00">
+                        <button type="button" class="close" style="background-color: #ff9d00" data-dismiss="modal">&times;</button>
+                        <h4 style="background-color: #ff9d00"><span class="glyphicon glyphicon-lock"></span>Alocar Materiais</h4>
+                    </div>
+                    <span id="msgAlerta" class="col-md-12 text-center alert">
+                        
+                    </span>
+                    <div class="modal-body corpo">
+                        
+                        <form method="POST" action="frontController">
+                            <input type="hidden" name="comando" value="AlocarMaterial"/>
+                            <div class="form-group">
+                                <label for="evento">Selecione o Alocação/Evento:</label>
+                                <select name="evento" id="evento" class="form-control">
+                                    <c:forEach items="${eventos}" var="evento">
+                                        <option value="${evento.nome}">
+                                            ${evento.nome}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="material">Selecione o material:</label>
+                                <select name="material" id="material" class="form-control">
+                                    <c:forEach items="${materiais}" var="material">
+                                        <option value="${material.nome}">
+                                            ${material.nome}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <button type="submit" id="btnAlocarMateriais" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-off"></span>Alocar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Importando o jQuery -->
         <script src="libs/jquery.min.js"></script>
         <!-- Importando o js do bootstrap -->
@@ -179,6 +221,11 @@
                 
                 $("#alocarEvento").click(function () {
                     $("#modalAlocarEvento").modal();
+                    console.log("clicado");
+                });
+                
+                $("#alocarMateriais").click(function () {
+                    $("#modalAlocarMateriais").modal();
                     console.log("clicado");
                 });
             });
