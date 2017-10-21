@@ -64,7 +64,7 @@
                       <td>${material.nome}</td>
                       <td>${material.tombamento}</td>
                       <td>${material.status}</td>
-                      <td>#local</td>
+                      <td>${material.local}</td>
                       <td><button type="button" class="btn btn-primary" title="Devolver Material"><span class="glyphicon glyphicon-download"></span></button></td>
                       <td>
                         <form action="frontController" method="post">                       

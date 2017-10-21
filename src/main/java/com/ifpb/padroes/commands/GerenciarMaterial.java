@@ -60,11 +60,19 @@ public class GerenciarMaterial implements Command{
                     }
                 }
                 
-                if(alocado == true)
-                    materialDTO.setStatus(EstadoMaterial.Disponivel);
-                else
+                if(alocado == false){
+                    String local = material.getAlocacao().getSala().getNome();
+                    if("".equals(local))
+                        local = "default";
+                    materialDTO.setLocal(local);
                     materialDTO.setStatus(EstadoMaterial.Indisponivel);
-                
+                }
+                else{
+                    materialDTO.setLocal("n/s");
+                    materialDTO.setStatus(EstadoMaterial.Disponivel);
+                }
+                    
+
                 representacoesMaterialDTO.add(materialDTO);
                 
             }
