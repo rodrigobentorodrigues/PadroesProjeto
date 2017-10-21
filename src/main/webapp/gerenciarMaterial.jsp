@@ -8,7 +8,7 @@
         <!-- Estilo para resetar as config. dos navegadores -->
         <link href="css/reset.css" rel="stylesheet">
         <!-- Bootstrap CSS -->
-        <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
                         
@@ -63,7 +63,7 @@
                     <tr>
                       <td>${material.nome}</td>
                       <td>${material.tombamento}</td>
-                      <td>#status</td>
+                      <td>${material.status}</td>
                       <td>#local</td>
                       <td><button type="button" class="btn btn-primary" title="Devolver Material"><span class="glyphicon glyphicon-download"></span></button></td>
                       <td>
@@ -124,7 +124,7 @@
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
           <!-- Importando o js do bootstrap -->
-          <script src="libs/bootstrap/bootstrap.min.js"></script>
+          <script src="libs/bootstrap/js/bootstrap.js"></script>
 
 
  

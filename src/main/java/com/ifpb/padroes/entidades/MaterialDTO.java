@@ -12,17 +12,21 @@ import java.io.Serializable;
  *
  * @author Rudan
  */
-public abstract class MaterialDTO implements Serializable {
+public class MaterialDTO implements Serializable {
     
     private int tombamento;
     private String nome;
     protected EstadoMaterial status;
     protected String local;
 
-    public MaterialDTO(String nome) {
+    public MaterialDTO() {
+    }
+    
+    public MaterialDTO(int tombamento, String nome, EstadoMaterial status, String local) {
+        this.tombamento = tombamento;
         this.nome = nome;
-        this.status = EstadoMaterial.Disponivel;
-        this.local = "n/s";
+        this.status = status;
+        this.local = local;
     }
 
     public int getTombamento() {
@@ -56,5 +60,8 @@ public abstract class MaterialDTO implements Serializable {
     public void setLocal(String local) {
         this.local = local;
     }
+
+
+    
     
 }

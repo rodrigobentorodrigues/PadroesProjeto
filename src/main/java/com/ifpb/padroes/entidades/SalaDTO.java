@@ -5,6 +5,7 @@
  */
 package com.ifpb.padroes.entidades;
 
+import com.ifpb.padroes.enums.EstadoSala;
 import com.ifpb.padroes.enums.TipoSala;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -23,12 +24,12 @@ public class SalaDTO {
     private Bloco bloco;
     private int capacidade;
     private TipoSala tipo;
-    private String status;
+    private EstadoSala status;
 
     public SalaDTO() {
     }
-    
-    public SalaDTO(int id, String nome, Bloco bloco, int capacidade, TipoSala tipo, String status) {
+
+    public SalaDTO(int id, String nome, Bloco bloco, int capacidade, TipoSala tipo, EstadoSala status) {
         this.id = id;
         this.nome = nome;
         this.bloco = bloco;
@@ -77,13 +78,12 @@ public class SalaDTO {
         this.tipo = tipo;
     }
 
-    public String getStatus() {
+    public EstadoSala getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(EstadoSala status) {
         this.status = status;
     }
-    
-    
+
 }

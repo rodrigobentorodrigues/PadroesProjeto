@@ -5,15 +5,14 @@
  */
 package com.ifpb.padroes.commands;
 
-import com.ifpb.padroes.entidades.Feriado;
 import com.ifpb.padroes.entidades.Sala;
 import com.ifpb.padroes.entidades.SalaDTO;
+import com.ifpb.padroes.enums.EstadoSala;
 import com.ifpb.padroes.facade.FacadeAlocacaoSala;
 import com.ifpb.padroes.interfaces.BlocoDao;
 import com.ifpb.padroes.interfaces.Command;
 import com.ifpb.padroes.interfaces.SalaDao;
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -58,7 +57,7 @@ public class GerenciarSalas implements Command {
                 salaDTO.setBloco(sala.getBloco());
                 salaDTO.setTipo(sala.getTipo());
                 
-                Iterator<Sala> isd = todasAsSalas.iterator();
+                Iterator<Sala> isd = salasDisponiveis.iterator();
                 
                 boolean alocada = false;
                 while (isd.hasNext()) {
@@ -67,10 +66,10 @@ public class GerenciarSalas implements Command {
                     }
                 }
                 
-                if(!alocada)
-                    salaDTO.setStatus("Disponivel");
+                if(alocada == true)
+                    salaDTO.setStatus(EstadoSala.Disponivel);
                 else
-                    salaDTO.setStatus("Disponivel");
+                    salaDTO.setStatus(EstadoSala.Indisponivel);
                 
                 representacoesSalaDTO.add(salaDTO);
                 
