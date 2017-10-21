@@ -7,7 +7,7 @@
         <!-- Estilo para resetar as config. dos navegadores -->
         <link href="css/reset.css" rel="stylesheet">
         <!-- Bootstrap CSS -->
-        <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -36,7 +36,7 @@
                     <td><div class="form-group">              
                             <input name="data" type="date" class="form-control" id="data" value="${feriadoEdit.dataFeriado}"/>
                         </div></td>
-                    <td><button type="submit" class="btn btn-success" title="Atualizar Feriado"><span class="glyphicon glyphicon-save"></span></button></td>
+                    <td><button type="submit" class="btn btn-success" title="Atualizar Feriado"><span class="glyphicon glyphicon-floppy-disk"></span></button></td>
                 </form>
                 <td>
                     <form action="frontController" method="post">

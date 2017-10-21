@@ -8,7 +8,7 @@
         <!-- Estilo para resetar as config. dos navegadores -->
         <link href="css/reset.css" rel="stylesheet">
         <!-- Bootstrap CSS -->
-        <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">        
         <!-- Calendario -->
@@ -63,8 +63,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4><span class="glyphicon glyphicon-lock"></span>Importar Feriados</h4>
                     </div>
-
-                    </span>
+                    
                     <div class="modal-body corpo">                    
                         <form enctype="multipart/form-data" action="frontController" method="post">
                             <div class="form-group">
