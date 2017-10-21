@@ -8,7 +8,7 @@
         <!-- Estilo para resetar as config. dos navegadores -->
         <link href="css/reset.css" rel="stylesheet">
         <!-- Bootstrap CSS -->
-        <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
                         
@@ -63,13 +63,14 @@
                       <td>${sala.bloco.nome}</td>
                       <td>${sala.capacidade}</td>
                       <td>${sala.tipo}</td>
-                      <td>#status</td>
+                      <td>${sala.status}</td>
                       <td>
                           <form action="frontController" method="post">
                               <input type="hidden" name="comando" value="EditarSala">
                               <input type="hidden" name="idSala" value="${sala.id}">
-                              <button type="submit" class="btn btn-success" title="Editar Sala"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                              <button type="submit" class="btn btn-success" title="Editar Sala"><span class="glyphicon glyphicon-pencil"></span></button>
                           </form>
+                      </td>
                       <td>
                           <form action="frontController" method="post">
                               <input type="hidden" name="comando" value="ExcluirSala">
@@ -139,7 +140,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         <!-- Importando o js do bootstrap -->
-        <script src="libs/bootstrap/bootstrap.min.js"></script>
+        <script src="libs/bootstrap/js/bootstrap.js"></script>
 
         <script>
             $(document).ready(function(){
