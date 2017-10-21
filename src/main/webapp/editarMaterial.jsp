@@ -25,7 +25,8 @@
                 <div class="col-md-offset-11">
                     <button type="submit" class="btn btn-success">Atualizar</button>
                 </div>
-            </form>  
+            </form>
+            <a href="inicial.jsp"><button class="btn btn-primary" title="Voltar">Voltar</button></a>    
         </div>
 
     </body>

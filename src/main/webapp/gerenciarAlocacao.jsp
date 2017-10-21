@@ -70,6 +70,7 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <a href="inicial.jsp"><button class="btn btn-primary" title="Voltar">Voltar</button></a>
         </div>
         
         <div class="modal fade" role="dialog" id="modalCadastrarEvento" >
@@ -96,7 +97,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="participantes">Participantes:</label>
-                                <input id="participantes" class="form-control" type="number" name="participantes"/>
+                                <input id="participantes" class="form-control" type="number" name="participantes" min="1"/>
                             </div>
                             <div class="form-group">
                                 <label for="Responsável">Responsável:</label>

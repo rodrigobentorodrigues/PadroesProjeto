@@ -61,7 +61,9 @@ public class FacadeAlocacaoSalaImpl implements FacadeAlocacaoSala {
         Usuario usuario = usuarioDao.buscarPorNome(nomeUsuario);
         System.out.println(usuario.toString());
         evento.setResponsavel(usuario);
+        usuario.add(evento);
         eventoDao.adicionar(evento);
+        usuarioDao.atualizar(usuario);
     }
 
     @Override

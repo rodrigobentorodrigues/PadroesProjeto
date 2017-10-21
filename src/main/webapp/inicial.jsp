@@ -18,6 +18,7 @@
               </div>
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
+                <c:if test="${usuarioLogado.papel eq 'Administrador'}">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administração
                     <span class="caret"></span></a>
@@ -26,7 +27,7 @@
                       <li><a href="frontController?comando=GerenciarFeriados">Gerenciar Feriados</a></li>
                     </ul>
                 </li>
-                
+                </c:if>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Infraestrutura e Recursos
                     <span class="caret"></span></a>
@@ -44,7 +45,6 @@
               </ul>
             </div>
         </nav>
-
         <script src="libs/jquery.min.js"></script>
         <script src="libs/bootstrap/bootstrap.min.js"></script>   
     </body>

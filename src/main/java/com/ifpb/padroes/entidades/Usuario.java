@@ -2,6 +2,9 @@ package com.ifpb.padroes.entidades;
 
 import com.ifpb.padroes.enums.Papel;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -37,11 +41,16 @@ public class Usuario implements Serializable {
     private int matricula;
     @Enumerated(EnumType.STRING)
     private Papel papel;
+    
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "responsavel")
+    private List<Evento> eventos;
 
     public Usuario() {
+        this.eventos = new ArrayList<>();
     }
 
     public Usuario(String nome, String email, String senha, int matricula, Papel papel) {
+        this();
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -95,6 +104,22 @@ public class Usuario implements Serializable {
 
     public void setPapel(Papel papel) {
         this.papel = papel;
+    }
+
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
+    }
+    
+    public boolean add(Evento evento){
+        return eventos.add(evento);
+    }
+    
+    public boolean remove(Evento evento){
+        return eventos.remove(evento);
     }
 
     @Override

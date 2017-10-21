@@ -10,7 +10,13 @@
         <!-- Bootstrap CSS -->
         <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
         <!-- CSS -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">        
+        <!-- Calendario -->
+        <link rel='stylesheet' href='fullcalendar-3.6.1/fullcalendar.css' />
+        <script src='js/jquery.min.js'></script>
+        <script src='js/moment.min.js'></script>
+        <script src='fullcalendar-3.6.1/fullcalendar.js'></script>
+        <script src='fullcalendar-3.6.1/locale/pt-br.js'></script>
 
     </head>
     <body>
@@ -38,22 +44,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="feriado" items="${feriados}">
-                        <tr>
-                            <td>${feriado.nome}</td>
-                            <td>${feriado.dataFeriado}</td>
-                    <form action="frontController" method="POST">
-                        <input type="hidden" name="comando" value="EditarFeriado"/>
-                        <input type="hidden" name="id" value="${feriado.id}"/>
-                        <td><button title="Editar" class="btn btn-info col-sd-6" type="submit" value="Editar"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                    </form>
-                    <form action="frontController" method="POST">
-                        <input type="hidden" name="comando" value="ExcluirFeriado"/>
-                        <input type="hidden" name="id" value="${feriado.id}"/>
-                        <td><button class="btn btn-danger col-sd-6" type="submit" value="Excluir"><span class="glyphicon glyphicon-trash"></span></button></td>
-                    </form>
-                    </tr>
-                </c:forEach>
+                    <div id="calendar"></div>
+                
                 </tbody>
             </table>
             <!--<a href="inicial.jsp">Voltar</a>-->
@@ -111,9 +103,19 @@
         </div>
 
         <!-- Importando o jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- Importando o js do bootstrap -->
-        <script src="libs/bootstrap/bootstrap.min.js"></script>
+        <!--<script src="libs/bootstrap/bootstrap.min.js"></script>-->
+        <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                theme: true,
+                editable: false,
+                events: "frontController?comando=ListarFeriados"
+            });
+        });
+        </script>
+        
         <script>
             $("#cadastrarFeriado").click(function () {
                 $("#modalCadastrarFeriado").modal();
@@ -125,5 +127,6 @@
                 console.log("clicado importar feriados");
             });
         </script>
+        
     </body>
 </html>
