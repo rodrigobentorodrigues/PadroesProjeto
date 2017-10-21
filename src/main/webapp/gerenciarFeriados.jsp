@@ -20,34 +20,12 @@
 
     </head>
     <body>
+        
         <div class="container">
             <h2>Gerenciar Feriados</h2><br>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th colspan="4">
-                            <div class="btn-group col-md-2">
-                                <!--<a href="cadastro.html">-->
-                                <button type="button" class="btn btn-primary" title="Adicionar Feriado" id="cadastrarFeriado"><span class="glyphicon glyphicon-plus"></span></button>
-                                <!--</a>-->
-                            </div>
-                            <div class="input-group col-md-10 text-right">
-                                <button type="button" class="btn btn-primary" title="Importar Feriados" id="importarFeriados"><span class="glyphicon glyphicon-open"></span>Importar</button>
-                            </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Nome</th>  
-                        <th>Data</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <div id="calendar"></div>
-                
-                </tbody>
-            </table>
+            <div class="col-md-8 col-md-offset-2">                      
+                <div id="calendar"></div>               
+            </div>
             <!--<a href="inicial.jsp">Voltar</a>-->
         </div>
         
@@ -109,10 +87,11 @@
         <script>
         $(document).ready(function() {
             $('#calendar').fullCalendar({
-                theme: true,
                 editable: false,
-                events: "frontController?comando=ListarFeriados"
-            });
+                BackgroundEvents: "red",
+                events: "frontController?comando=ListarFeriados",
+            })
+            
         });
         </script>
         
