@@ -30,13 +30,19 @@
                     <input type="hidden" name="comando" value="AtualizarFeriado"/>
                     <input type="hidden" name="id" value="${feriadoEdit.id}"/>
 
-                    <td><div class="form-group">                            
-                            <input name="nome" type="text" class="form-control" id="nome" value="${feriadoEdit.nome}"/>
-                        </div></td>
-                    <td><div class="form-group">              
-                            <input name="data" type="date" class="form-control" id="data" value="${feriadoEdit.dataFeriado}"/>
-                        </div></td>
-                    <td><button type="submit" class="btn btn-success" title="Atualizar Feriado"><span class="glyphicon glyphicon-floppy-disk"></span></button></td>
+                    <td>
+                        <div class="form-group">              
+                            <input name="data" type="date" class="form-control" id="data" value="${feriadoEdit.dataFeriado}" required=""/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">                            
+                            <input name="nome" type="text" class="form-control" id="nome" value="${feriadoEdit.nome}" required=""/>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-success" title="Atualizar Feriado"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+                    </td>
                 </form>
                 <td>
                     <form action="frontController" method="post">
