@@ -20,7 +20,7 @@ import javax.persistence.SequenceGenerator;
 @Entity
 @SequenceGenerator(name = "minha_seq",
         sequenceName = "seq_usu",
-        initialValue = 1, allocationSize = 1)
+        initialValue = 2, allocationSize = 1)
 @NamedQueries(
 @NamedQuery(name = "Usuario.login", 
         query = "SELECT u FROM Usuario u WHERE u.nome = :login AND u.senha = :senha"
