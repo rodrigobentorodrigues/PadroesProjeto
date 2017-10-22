@@ -8,7 +8,7 @@
         <!-- Estilo para resetar as config. dos navegadores -->
         <link href="css/reset.css" rel="stylesheet">
         <!-- Bootstrap CSS -->
-        <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -82,7 +82,7 @@
                 <!-- Importando o jQuery -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                 <!-- Importando o js do bootstrap -->
-                <script src="libs/bootstrap/bootstrap.min.js"></script>
+                <script src="libs/bootstrap/js/bootstrap.js"></script>
                 <script src="js/gerenciarBloco.js"></script>
         </div>
     </body>

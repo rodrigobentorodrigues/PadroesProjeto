@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/reset.css" rel="stylesheet">
         <!-- Bootstrap CSS -->
-        <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
         <title>Pagina Inicial</title>
     </head>
     <body>
@@ -46,6 +46,6 @@
             </div>
         </nav>
         <script src="libs/jquery.min.js"></script>
-        <script src="libs/bootstrap/bootstrap.min.js"></script>   
+        <script src="libs/bootstrap/js/bootstrap.js"></script>   
     </body>
 </html>

@@ -7,7 +7,7 @@
         <!-- Estilo para resetar as config. dos navegadores -->
         <link href="css/reset.css" rel="stylesheet">
         <!-- Bootstrap CSS -->
-        <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
     </head>
