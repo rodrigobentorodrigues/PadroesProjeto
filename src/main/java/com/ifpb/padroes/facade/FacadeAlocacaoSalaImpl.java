@@ -11,6 +11,7 @@ import com.ifpb.padroes.entidades.Evento;
 import com.ifpb.padroes.entidades.Material;
 import com.ifpb.padroes.entidades.Sala;
 import com.ifpb.padroes.entidades.Usuario;
+import com.ifpb.padroes.enums.EstadoEvento;
 import com.ifpb.padroes.interfaces.AlocacaoDao;
 import com.ifpb.padroes.interfaces.EventoDao;
 import com.ifpb.padroes.interfaces.MaterialDao;
@@ -67,14 +68,14 @@ public class FacadeAlocacaoSalaImpl implements FacadeAlocacaoSala {
                 Alocacao alocacao = ita.next();
                 if(evento.equals(alocacao.getEvento())){
                     alocado = true;
-                    alocacaoDTO.setSituacao("agendado");
+                    alocacaoDTO.setSituacao(EstadoEvento.Agendado);
                     alocacaoDTO.setLocal(alocacao.getSala().getNome());
                 }
                     
             }
             
             if(!alocado)
-                alocacaoDTO.setSituacao("Não alocado");
+                alocacaoDTO.setSituacao(EstadoEvento.Desalocado);
             
   
             alocacoes.add(alocacaoDTO);

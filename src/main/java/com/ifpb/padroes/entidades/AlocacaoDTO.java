@@ -5,6 +5,7 @@
  */
 package com.ifpb.padroes.entidades;
 
+import com.ifpb.padroes.enums.EstadoEvento;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -16,13 +17,13 @@ public class AlocacaoDTO {
     private LocalDate dataHoraInicio;
     private String duracao;
     private String nomeEvento;
-    private String situacao;
+    private EstadoEvento situacao;
     private String local;
 
     public AlocacaoDTO() {
     }
     
-    public AlocacaoDTO(LocalDate dataHoraInicio, String duracao, String nomeEvento, String situacao, String local) {
+    public AlocacaoDTO(LocalDate dataHoraInicio, String duracao, String nomeEvento, EstadoEvento situacao, String local) {
         this.dataHoraInicio = dataHoraInicio;
         this.duracao = duracao;
         this.nomeEvento = nomeEvento;
@@ -54,11 +55,11 @@ public class AlocacaoDTO {
         this.nomeEvento = nomeEvento;
     }
 
-    public String getSituacao() {
+    public EstadoEvento getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(String situacao) {
+    public void setSituacao(EstadoEvento situacao) {
         this.situacao = situacao;
     }
 
