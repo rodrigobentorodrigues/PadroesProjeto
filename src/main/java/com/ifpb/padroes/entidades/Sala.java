@@ -27,7 +27,7 @@ public class Sala implements Serializable {
     @Enumerated(EnumType.STRING)
     private TipoSala tipo;
     
-    @OneToOne(mappedBy = "sala", cascade = CascadeType.MERGE)
+    @OneToOne(mappedBy = "sala", cascade = CascadeType.REMOVE)
     private Alocacao alocacao;
 
     public Sala() {

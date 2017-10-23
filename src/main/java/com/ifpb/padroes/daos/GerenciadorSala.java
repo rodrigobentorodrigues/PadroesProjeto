@@ -37,6 +37,10 @@ public class GerenciadorSala implements SalaDao {
     public void atualizar(Sala sala) {
         Sala s = em.find(Sala.class, sala.getId());
         s.setAlocacao(sala.getAlocacao());
+        s.setNome(sala.getNome());
+        s.setBloco(sala.getBloco());
+        s.setTipo(sala.getTipo());
+        s.setCapacidade(sala.getCapacidade());
         em.merge(s);
     }
 

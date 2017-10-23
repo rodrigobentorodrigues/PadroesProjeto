@@ -8,3 +8,4 @@ CREATE TABLE usuario (
 );
 
 INSERT INTO usuario VALUES (1, 'admin', 'admin@gmail.com', 'admin123', '999999', 'Administrador');
+INSERT INTO usuario VALUES (2, 'rodrigo', 'rodrigo@gmail.com', '123', '101010', 'Assistente');

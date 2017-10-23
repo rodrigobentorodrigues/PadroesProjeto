@@ -36,7 +36,7 @@ public class Alocacao implements Serializable {
     @JoinColumn(name="id_sala")
     private Sala sala;
     
-    @OneToMany(mappedBy = "alocacao")
+    @OneToMany(mappedBy = "alocacao", cascade = CascadeType.ALL)
     private List<Material> materiais;
 
     public Alocacao() {
