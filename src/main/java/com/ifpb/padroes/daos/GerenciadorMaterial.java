@@ -22,9 +22,9 @@ public class GerenciadorMaterial implements MaterialDao{
     private EntityManager em;
 
     @Override
-    public void adicionar(Material material, int quantidade) {
+    public void adicionar(String nome, int quantidade) {
         for(int k=1; k<=quantidade; k++){
-            Material novo = material;
+            Material novo = new Material(nome);
             em.persist(novo);
         }
     }

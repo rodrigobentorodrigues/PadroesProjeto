@@ -42,7 +42,6 @@
                     </tr>
                     <tr>
                         <th>Data</th>
-                        <th>Duração</th>
                         <th>Evento</th>
                         <th>Situacao</th> 
                         <th>Local</th>
@@ -54,7 +53,6 @@
                     <c:forEach var="alocacao" items="${alocacoes}">
                         <tr>
                             <td>${alocacao.dataHoraInicio}</td>
-                            <td>${alocacao.duracao}</td>
                             <td>${alocacao.nomeEvento}</td>
                             <td>${alocacao.situacao}</td>
                             <td>${alocacao.local}</td>

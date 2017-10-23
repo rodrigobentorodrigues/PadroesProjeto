@@ -98,12 +98,12 @@
                   <form role="form" action="frontController" method="post">
                       <input type="hidden" name="comando" value="AdicionarSala"/>
                       <div class="form-group">
-                        <label for="nome"><span class="glyphicon glyphicon-user"></span>Descriçao</label>
+                        <label for="nome">Descriçao</label>
                         <input type="text" class="form-control"  maxlength="50" name="nome" id="nome" placeholder="Descrição">
                       </div>
                       
                       <div class="form-group">
-                        <label for="bloco"><span class="glyphicon glyphicon-eye-open"></span>Bloco</label>
+                        <label for="bloco">Bloco</label>
                         <select class="form-control" name="idBloco" id="idBloco" required> 
                             <option value=""></option>
                             <c:forEach var="bloco" items="${blocos}">
@@ -113,7 +113,7 @@
                       </div>
                       
                       <div class="form-group">
-                        <label for="capacidade"><span class="glyphicon glyphicon-eye-open"></span>Capacidade</label>
+                        <label for="capacidade">Capacidade</label>
                         <input type="number" class="form-control" name="capacidade" id="capacidade" min="1">
                       </div>
                       

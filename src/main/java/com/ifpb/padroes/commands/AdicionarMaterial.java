@@ -26,10 +26,8 @@ public class AdicionarMaterial implements Command{
         
         String descricao = requisicao.getParameter("descricao");
         int quantidade = Integer.parseInt(requisicao.getParameter("quantidade"));
-   
-        Material material = new Material(descricao);
-        
-        dao.adicionar(material, quantidade);
+          
+        dao.adicionar(descricao, quantidade);
         
         String url = resposta.encodeURL("frontController?comando=GerenciarMaterial");
         try {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface MaterialDao{
 
-    void adicionar(Material material, int quantidade);
+    void adicionar(String nome, int quantidade);
     void remover(int tombamento);
     void atualizar(Material material);
     Material buscaPorId(int id);

@@ -96,17 +96,18 @@
             <div class="modal-content">
               <div class="modal-header" style="padding:35px 50px;">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4><span class="glyphicon glyphicon-lock"></span>Cadastrar Material</h4>
+                <h4><span class="glyphicon glyphicon-plus"></span>Cadastrar Material</h4>
               </div>
               <div class="modal-body" style="padding:40px 50px;">
                   <form role="form" action="frontController" method="post">
                       <input type="hidden" name="comando" value="AdicionarMaterial"/>
                       <div class="form-group">
-                        <label for="descricao"><span class="glyphicon glyphicon-user"></span>Descriçao</label>
+                        <label for="descricao">Descriçao</label>
                         <input type="text" class="form-control"  maxlength="50" name="descricao" id="descricao" placeholder="Descrição" required>
                       </div>
                       <div class="form-group">
-                          <input type="hidden" class="form-control" name="quantidade" id="quantidade" value="1">
+                          <label for="descricao">Quantidade</label>
+                          <input type="number" min="1" class="form-control" name="quantidade" id="quantidade" value="1">
                       </div>
                         <button type="submit" class="btn btn-success btn-block">Cadastrar <span class="glyphicon glyphicon-ok"></span></button>
                 </form>

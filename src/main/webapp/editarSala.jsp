@@ -23,13 +23,7 @@
                     <input name="nome" type="text" class="form-control" id="nome" value="${Sala.nome}"/>
                 </div>
                 <div class="form-group">
-                    <label for="bloco"><span class="glyphicon glyphicon-eye-open"></span>Bloco</label>
-                    <select class="form-control" name="idBloco" id="idBloco" required> 
-                        <option value="${Sala.bloco.id}">${Sala.bloco.nome}</option>
-                        <c:forEach var="bloco" items="${requestScope.blocos}">
-                            <option value="${bloco.id}">${bloco.nome}</option>
-                        </c:forEach>
-                    </select>
+                    <input type="hidden" class="form-control" name="idBloco" id="idBloco" value="${Sala.bloco.id}"/>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="nome">Capacidade:</label>

@@ -31,7 +31,6 @@ public class EditarSala implements Command {
         
         try {
             requisicao.setAttribute("Sala", sala);
-            requisicao.setAttribute("blocos", blocoDao.listarTodos());
             RequestDispatcher despachante = requisicao.getRequestDispatcher("editarSala.jsp");
             despachante.forward(requisicao, resposta);
         } catch (ServletException | IOException ex) {
