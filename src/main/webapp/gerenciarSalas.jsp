@@ -44,8 +44,7 @@
                                 </form>
                             </div>
                     </th>
-                </tr>
-                    
+                </tr>                    
                 <tr>
                   <th>Sala</th>
                   <th>Bloco</th>
@@ -128,7 +127,7 @@
                         </select>
                       </div>
                       
-                      <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                      <button type="submit" class="btn btn-success btn-block">Cadastrar <span class="glyphicon glyphicon-ok"></span></button>
                 </form>
               </div>
             </div>

@@ -3,10 +3,10 @@ package com.ifpb.padroes.entidades;
 
 import com.ifpb.padroes.enums.TipoSala;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -27,7 +27,7 @@ public class Sala implements Serializable {
     @Enumerated(EnumType.STRING)
     private TipoSala tipo;
     
-    @OneToOne(mappedBy = "sala")
+    @OneToOne(mappedBy = "sala", cascade = CascadeType.ALL)
     private Alocacao alocacao;
 
     public Sala() {

@@ -11,7 +11,7 @@
         <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
-        
+
     </head>
     <body>
         <div class="container">
@@ -74,10 +74,10 @@
                         <h4><span class="glyphicon glyphicon-lock"></span>Cadastrar Usuário</h4>
                     </div>
                     <span id="msgAlerta" class="col-md-12 text-center alert">
-                        
+
                     </span>
                     <div class="modal-body corpo">
-                        
+
                         <form>
                             <!--<input type="hidden" name="comando" value="AdicionarUsuario"/>-->
                             <div class="form-group">
@@ -104,7 +104,7 @@
                                     <option>Assistente</option>
                                 </select>
                             </div>
-                            <button type="button" id="btnCadastrar" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                            <button type="submit" id="btnCadastrar" class="btn btn-success btn-block">Cadastrar <span class="glyphicon glyphicon-ok"></span></button>
                         </form>
                     </div>
                 </div>
@@ -114,6 +114,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- Importando o js do bootstrap -->
         <script src="libs/bootstrap/js/bootstrap.js"></script>
+        <!--Caso não for utilizar docker-->
         <script src="js/gerenciarUsuario.js"></script>
     </body>
 </html>

@@ -26,7 +26,6 @@
             <div class="col-md-8 col-md-offset-2">                      
                 <div id="calendar"></div>               
             </div>
-            <!--<a href="inicial.jsp">Voltar</a>-->
         </div>
         
         <div class="modal fade" role="dialog" id="modalCadastrarFeriado" >

@@ -56,17 +56,7 @@
                             <td>${alocacao}</td>
                             <td>${alocacao}</td>
                             <td>${alocacao}</td>
-<!--                    <form action="frontController" method="POST">
-                        <input type="hidden" name="comando" value="EditarUsuario"/>
-                        <input type="hidden" name="id" value=""/>
-                        <td><button title="Editar" class="btn btn-info col-sd-6" type="submit" value="Editar"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                    </form>
-                    <form action="frontController" method="POST">
-                        <input type="hidden" name="comando" value="ExcluirUsuario"/>
-                        <input type="hidden" name="id" value=""/>
-                        <td><button class="btn btn-danger col-sd-6" type="submit" value="Excluir"><span class="glyphicon glyphicon-trash"></span></button></td>
-                    </form>-->
-                    </tr>
+                        </tr>
                 </c:forEach>
                 </tbody>
             </table>
@@ -159,7 +149,7 @@
                                 </select>
                             </div>
                             
-                            <button type="submit" id="btnAlocar" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Alocar</button>
+                            <button type="submit" id="btnAlocar" class="btn btn-success btn-block">Alocar <span class="glyphicon glyphicon-ok"></span></button>
                         </form>
                     </div>
                 </div>

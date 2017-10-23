@@ -106,12 +106,9 @@
                         <input type="text" class="form-control"  maxlength="50" name="descricao" id="descricao" placeholder="Descrição" required>
                       </div>
                       <div class="form-group">
-
-<!--                        <label for="quantidade"><span class="glyphicon glyphicon-eye-open"></span>Quantidade</label>-->
-                        <input type="hidden" class="form-control" name="quantidade" id="quantidade" value="1">
-
+                          <input type="hidden" class="form-control" name="quantidade" id="quantidade" value="1">
                       </div>
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                        <button type="submit" class="btn btn-success btn-block">Cadastrar <span class="glyphicon glyphicon-ok"></span></button>
                 </form>
               </div>
             </div>

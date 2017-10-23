@@ -73,7 +73,7 @@
                                         <label for="nomeBloco">Nome do bloco:</label>
                                         <input type="text" id="nomeBloco" class="form-control" name="nome"/>
                                     </div>
-                                    <button type="submit" value="Cadastrar Bloco" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Cadastrar</button>
+                                    <button type="submit" value="Cadastrar Bloco" class="btn btn-success btn-block">Cadastrar <span class="glyphicon glyphicon-ok"></span></button>
                                 </form>
                             </div>
                         </div>

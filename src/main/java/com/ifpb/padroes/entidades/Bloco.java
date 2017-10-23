@@ -4,6 +4,7 @@ package com.ifpb.padroes.entidades;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,9 +21,10 @@ public class Bloco implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "minha_seq_bloco")
     private int id;
+    
     private String nome;
     
-    @OneToMany(mappedBy = "bloco")
+    @OneToMany(mappedBy = "bloco", cascade = CascadeType.ALL)
     private List<Sala> salas;
 
     public Bloco() {
