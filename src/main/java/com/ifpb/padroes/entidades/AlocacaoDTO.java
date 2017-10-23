@@ -5,6 +5,7 @@
  */
 package com.ifpb.padroes.entidades;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -12,13 +13,16 @@ import java.util.Date;
  * @author natan
  */
 public class AlocacaoDTO {
-    private Date dataHoraInicio;
+    private LocalDate dataHoraInicio;
     private String duracao;
     private String nomeEvento;
     private String situacao;
     private String local;
 
-    public AlocacaoDTO(Date dataHoraInicio, String duracao, String nomeEvento, String situacao, String local) {
+    public AlocacaoDTO() {
+    }
+    
+    public AlocacaoDTO(LocalDate dataHoraInicio, String duracao, String nomeEvento, String situacao, String local) {
         this.dataHoraInicio = dataHoraInicio;
         this.duracao = duracao;
         this.nomeEvento = nomeEvento;
@@ -26,11 +30,11 @@ public class AlocacaoDTO {
         this.local = local;
     }
 
-    public Date getDataHoraInicio() {
+    public LocalDate getDataHoraInicio() {
         return dataHoraInicio;
     }
 
-    public void setDataHoraInicio(Date dataHoraInicio) {
+    public void setDataHoraInicio(LocalDate dataHoraInicio) {
         this.dataHoraInicio = dataHoraInicio;
     }
 

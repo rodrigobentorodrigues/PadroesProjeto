@@ -17,6 +17,7 @@ import com.ifpb.padroes.interfaces.MaterialDao;
 import com.ifpb.padroes.interfaces.SalaDao;
 import com.ifpb.padroes.interfaces.UsuarioDao;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -43,7 +44,44 @@ public class FacadeAlocacaoSalaImpl implements FacadeAlocacaoSala {
     
     @Override
     public List<AlocacaoDTO> listarAlocacoes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Evento> todosOsEventos = listarEventos();
+        List<Alocacao> todasAsAlocacoes = alocacaoDao.listarTodos();
+        List<AlocacaoDTO> alocacoes = new ArrayList<>();
+        
+        Iterator<Evento> ite = todosOsEventos.iterator();
+        
+        
+        while(ite.hasNext()){
+            Evento evento = ite.next();
+            
+            AlocacaoDTO alocacaoDTO = new  AlocacaoDTO();
+
+            alocacaoDTO.setDataHoraInicio(evento.getInicio());
+            alocacaoDTO.setDuracao("1:00");
+            alocacaoDTO.setNomeEvento(evento.getNome());
+            
+                        
+            Iterator<Alocacao> ita = todasAsAlocacoes.iterator();
+            boolean alocado = false;
+            while(ita.hasNext()){
+                Alocacao alocacao = ita.next();
+                if(evento.equals(alocacao.getEvento())){
+                    alocado = true;
+                    alocacaoDTO.setSituacao("agendado");
+                    alocacaoDTO.setLocal(alocacao.getSala().getNome());
+                }
+                    
+            }
+            
+            if(!alocado)
+                alocacaoDTO.setSituacao("Não alocado");
+            
+  
+            alocacoes.add(alocacaoDTO);
+
+        }
+        
+        return alocacoes;
     }
     
     @Override 

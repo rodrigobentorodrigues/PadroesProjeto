@@ -28,7 +28,7 @@
                             </div>
                             <div class="btn-group col-md-1">
                                 <button type="button" class="btn btn-primary" title="Alocar Materiais"  id="alocarMateriais"><span class="glyphicon glyphicon-wrench"></span></button>
-                            </div
+                            </div>
                             <div class="input-group col-md-9">
                                 <form class="form-inline" action="frontController" method="POST">
                                     <input type="hidden" name="comando" value="GerenciarAlocacao" />
@@ -41,10 +41,11 @@
                         </th>
                     </tr>
                     <tr>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Matricula</th>
-                        <th>Papel</th>       
+                        <th>Data</th>
+                        <th>Duração</th>
+                        <th>Evento</th>
+                        <th>Situacao</th> 
+                        <th>Local</th>
                         <th>Editar</th>
                         <th>Excluir</th>                        
                     </tr>
@@ -52,11 +53,22 @@
                 <tbody>
                     <c:forEach var="alocacao" items="${alocacoes}">
                         <tr>
-                            <td>${alocacao}</td>
-                            <td>${alocacao}</td>
-                            <td>${alocacao}</td>
-                            <td>${alocacao}</td>
-                        </tr>
+                            <td>${alocacao.dataHoraInicio}</td>
+                            <td>${alocacao.duracao}</td>
+                            <td>${alocacao.nomeEvento}</td>
+                            <td>${alocacao.situacao}</td>
+                            <td>${alocacao.local}</td>
+<!--                    <form action="frontController" method="POST">
+                        <input type="hidden" name="comando" value="EditarUsuario"/>
+                        <input type="hidden" name="id" value=""/>
+                        <td><button title="Editar" class="btn btn-info col-sd-6" type="submit" value="Editar"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                    </form>
+                    <form action="frontController" method="POST">
+                        <input type="hidden" name="comando" value="ExcluirUsuario"/>
+                        <input type="hidden" name="id" value=""/>
+                        <td><button class="btn btn-danger col-sd-6" type="submit" value="Excluir"><span class="glyphicon glyphicon-trash"></span></button></td>
+                    </form>-->
+                    </tr>
                 </c:forEach>
                 </tbody>
             </table>
@@ -149,7 +161,7 @@
                                 </select>
                             </div>
                             
-                            <button type="submit" id="btnAlocar" class="btn btn-success btn-block">Alocar <span class="glyphicon glyphicon-ok"></span></button>
+                            <button type="submit" id="btnAlocar" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Alocar</button>
                         </form>
                     </div>
                 </div>

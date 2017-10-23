@@ -25,7 +25,7 @@ public class GerenciarAlocacao implements Command {
     
     @Override
     public void execute(HttpServletRequest requisicao, HttpServletResponse resposta) {
-        requisicao.getSession().setAttribute("alocacoes", Collections.EMPTY_LIST);
+        requisicao.getSession().setAttribute("alocacoes", facadeAlocacaoSala.listarAlocacoes());
         
         requisicao.getSession().setAttribute("usuarios", facadeAlocacaoSala.listarUsuarios());
         
