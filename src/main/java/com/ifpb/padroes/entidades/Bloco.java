@@ -24,7 +24,7 @@ public class Bloco implements Serializable{
     
     private String nome;
     
-    @OneToMany(mappedBy = "bloco", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bloco", cascade = CascadeType.REMOVE)
     private List<Sala> salas;
 
     public Bloco() {

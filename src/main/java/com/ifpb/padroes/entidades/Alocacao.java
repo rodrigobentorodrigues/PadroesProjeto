@@ -8,6 +8,7 @@ package com.ifpb.padroes.entidades;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,7 +32,7 @@ public class Alocacao implements Serializable {
     @JoinColumn(name = "id_evento")
     private Evento evento;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="id_sala")
     private Sala sala;
     

@@ -2,6 +2,7 @@
 package com.ifpb.padroes.entidades;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Material implements Serializable {
     private int tombamento;
     private String nome;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_alocacao")
     private Alocacao alocacao;
     

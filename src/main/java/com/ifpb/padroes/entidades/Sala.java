@@ -20,14 +20,14 @@ public class Sala implements Serializable {
     @GeneratedValue
     private int id;
     private String nome;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "bloco_id")
     private Bloco bloco;
     private int capacidade;
     @Enumerated(EnumType.STRING)
     private TipoSala tipo;
     
-    @OneToOne(mappedBy = "sala", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "sala", cascade = CascadeType.MERGE)
     private Alocacao alocacao;
 
     public Sala() {

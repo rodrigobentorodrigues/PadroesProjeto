@@ -23,6 +23,11 @@
         
         <div class="container">
             <h2>Gerenciar Feriados</h2><br>
+            <div class="col-md-12">
+                <button type="button" class="btn btn-success" title="Cadastrar Feriado" id="cadastrarFeriado"><span class="glyphicon glyphicon-plus"></span></button>
+                <button type="button" class="btn btn-success" title="Importar Feriado" id="importarFeriados"><span class="glyphicon glyphicon-open"></span></button>
+            </div>
+
             <div class="col-md-8 col-md-offset-2">                      
                 <div id="calendar"></div>               
             </div>
@@ -78,10 +83,10 @@
             </div>
         </div>
 
-        <!-- Importando o jQuery -->
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- Importando o jQuery 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- Importando o js do bootstrap -->
-        <!--<script src="libs/bootstrap/bootstrap.min.js"></script>-->
+        <script src="libs/bootstrap/js/bootstrap.js"></script>
         <script>
         $(document).ready(function() {
             $('#calendar').fullCalendar({
