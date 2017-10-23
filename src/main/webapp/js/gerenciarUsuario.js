@@ -9,7 +9,7 @@ $(document).ready(function () {
         console.log("clicado");
     });
     
-    // Cadastrar Usuario
+//     Cadastrar Usuario
     $('#btnCadastrar').click(function(event) {
         event.preventDefault();
         
@@ -24,10 +24,11 @@ $(document).ready(function () {
         var nome_regex = /^[A-Za-z0-9]+(?:[][A-Za-z0-9]+)*$/
         
         if(nome_regex.test(nome) && email_regex.test(email) && senha && matricula && papel) {
-            var url = `http://localhost:8080/padroesprojeto/frontController?comando=AdicionarUsuario&nome=${nome}&email=${email}&senha=${senha}&matricula=${matricula}&papel=${papel}`;
+//            var url = `http://localhost:8080/padroesprojeto/frontController?comando=AdicionarUsuario&nome=${nome}&email=${email}&senha=${senha}&matricula=${matricula}&papel=${papel}`;
+            var url = `http://localhost:8081/padroes/frontController?comando=AdicionarUsuario&nome=${nome}&email=${email}&senha=${senha}&matricula=${matricula}&papel=${papel}`;
             
             $.post(url, function(status){
-                window.location = '/padroesprojeto/frontController?comando=GerenciarUsuarios';
+                window.location = '/padroes/frontController?comando=GerenciarUsuarios';
             });
         } else {
             var msg = `Verifique se não há algum campo vazio ou com caractere especial!`;
@@ -38,13 +39,4 @@ $(document).ready(function () {
                 .css('font-size', '18px');
         }
     });
-    
-    // Pesquisar Usuario
-//    $('#btnPesquisar').click(function(event) {
-//        event.preventDefault();
-//        
-//        var pesquisa = $('#pesquisa').val();
-//        
-//        window.location = `/padroesprojeto/frontController?comando=GerenciarUsuarios&pesquisa=${pesquisa}`;
-//    });
 });
